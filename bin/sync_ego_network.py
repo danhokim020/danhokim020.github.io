@@ -30,7 +30,7 @@ def clean_list(cell):
     """Split string by semicolon or comma, stripping whitespace."""
     if not cell:
         return []
-    # If cell contains semicolon, prefer semicolon split
+    # If cell contains semicolon, prefer semicolon split; otherwise comma
     delimiters = ';' if ';' in cell else ','
     items = [item.strip() for item in cell.split(delimiters)]
     return [item for item in items if item]
@@ -40,14 +40,10 @@ def format_yaml_str(val):
     if not val:
         return '""'
     val_str = str(val).strip()
-    # Check if quotes are needed
-    if any(c in val_str for c in [':', '#', '[', ']', '{', '}', ',', '&', '*', '?', '|', '-', '<', '>', '=', '!', '%', '@', '\\']) or '\n' in val_str or '"' in val_str:
-        escaped = val_str.replace('\\', '\\\\').replace('"', '\\"')
-        return f'"{escaped}"'
-    return f'"{val_str}"'
+    escaped = val_str.replace('\\', '\\\\').replace('"', '\\"')
+    return f'"{escaped}"'
 
 def sync_network():
-    # Resolve project root directory
     script_dir = os.path.dirname(os.path.abspath(__file__))
     root_dir = os.path.abspath(os.path.join(script_dir, ".."))
     
@@ -61,8 +57,8 @@ def sync_network():
     print(f"[Sync] Reading data from {csv_path}...")
     
     papers = []
-    keyword_map = {}  # id -> {label, category}
-    method_map = {}   # id -> {label, full_name, desc}
+    keyword_map = {}  # id -> {id, label, category, papers: []}
+    method_map = {}   # id -> {id, label, full_name, desc, papers: []}
     
     # Read CSV
     try:
@@ -72,9 +68,23 @@ def sync_network():
                 paper_id = row.get('id', '').strip() or f"p{idx+1}"
                 title = row.get('title', '').strip()
                 short_title = row.get('short_title', '').strip() or title
-                status = row.get('status', '').strip().lower() or 'published'
+                raw_status = row.get('status', '').strip().lower()
                 year = row.get('year', '').strip() or '2026'
                 venue = row.get('venue', '').strip()
+                
+                # Check status: published vs on-going (ghost)
+                is_ongoing = any(k in raw_status for k in ["on-going", "ongoing", "ghost", "under_review", "in_prep", "draft", "working"])
+                status = "ongoing" if is_ongoing else "published"
+                
+                # Human-friendly badge
+                if "under_review" in raw_status or "under review" in venue.lower():
+                    badge = "Under Review"
+                elif "in_prep" in raw_status or "in preparation" in venue.lower():
+                    badge = "In Preparation"
+                elif is_ongoing:
+                    badge = "On-going"
+                else:
+                    badge = "Published"
                 
                 # Parse Core and Sub Keywords
                 core_kws = clean_list(row.get('core_keywords', ''))
@@ -88,14 +98,16 @@ def sync_network():
                 for kw in core_kws:
                     kw_id = slugify(kw, prefix="kw_")
                     if kw_id not in keyword_map:
-                        keyword_map[kw_id] = {"id": kw_id, "label": kw, "category": "core"}
+                        keyword_map[kw_id] = {"id": kw_id, "label": kw, "category": "core", "papers": []}
+                    keyword_map[kw_id]["papers"].append(short_title)
                     paper_kw_ids.append(kw_id)
                     
                 # Register Sub Keywords
                 for kw in sub_kws:
                     kw_id = slugify(kw, prefix="kw_")
                     if kw_id not in keyword_map:
-                        keyword_map[kw_id] = {"id": kw_id, "label": kw, "category": "sub"}
+                        keyword_map[kw_id] = {"id": kw_id, "label": kw, "category": "sub", "papers": []}
+                    keyword_map[kw_id]["papers"].append(short_title)
                     paper_kw_ids.append(kw_id)
                     
                 # Register Methods
@@ -106,16 +118,18 @@ def sync_network():
                             "id": m_id,
                             "label": m,
                             "full_name": m,
-                            "desc": f"Methodology: {m}"
+                            "desc": f"Methodology: {m}",
+                            "papers": []
                         }
+                    method_map[m_id]["papers"].append(short_title)
                     paper_m_ids.append(m_id)
                     
                 papers.append({
                     "id": paper_id,
                     "title": title,
                     "short_title": short_title,
-                    "status": "ghost" if status in ["ghost", "under_review", "in_prep", "draft"] else "published",
-                    "badge": "Under Review" if status in ["ghost", "under_review"] else ("In Prep" if status == "in_prep" else "Published"),
+                    "status": status,
+                    "badge": badge,
                     "year": year,
                     "venue": venue,
                     "keywords": paper_kw_ids,
@@ -142,12 +156,15 @@ def sync_network():
         "keywords:"
     ]
     
-    # Sort keywords (core first, then sub)
+    # Sort keywords (core first, then alphabetical)
     sorted_kws = sorted(keyword_map.values(), key=lambda x: (0 if x["category"] == "core" else 1, x["label"]))
     for kw in sorted_kws:
         lines.append(f"  - id: {kw['id']}")
         lines.append(f"    label: {format_yaml_str(kw['label'])}")
         lines.append(f"    category: {kw['category']}")
+        unique_papers = list(dict.fromkeys(kw['papers']))
+        p_str = ", ".join([format_yaml_str(p) for p in unique_papers])
+        lines.append(f"    linked_papers: [{p_str}]")
         
     lines.append("")
     lines.append("methods:")
@@ -156,6 +173,9 @@ def sync_network():
         lines.append(f"    label: {format_yaml_str(m['label'])}")
         lines.append(f"    full_name: {format_yaml_str(m['full_name'])}")
         lines.append(f"    desc: {format_yaml_str(m['desc'])}")
+        unique_papers = list(dict.fromkeys(m['papers']))
+        p_str = ", ".join([format_yaml_str(p) for p in unique_papers])
+        lines.append(f"    linked_papers: [{p_str}]")
         
     lines.append("")
     lines.append("papers:")

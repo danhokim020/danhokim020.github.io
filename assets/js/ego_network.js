@@ -1,13 +1,13 @@
 /**
  * Ego-Network 3-Lens Interactive Visualization (D3.js v7)
  * Tailored for Danho Kim's Research Homepage
- * Bulletproof implementation with full fallback data & robust node-link validation
+ * Fully supports CSV auto-sync, dynamic co-occurrence links, and On-going status
  */
 
 (function () {
   'use strict';
 
-  // 1. Built-in Fallback Data (ensures 100% reliability regardless of Liquid/YAML parsing)
+  // 1. Built-in Fallback Data (reflecting user's latest CSV updates)
   var DEFAULT_EGO_DATA = {
     ego: {
       name: "Danho, Kim",
@@ -15,17 +15,26 @@
       affiliation: "Library & Information Science"
     },
     keywords: [
-      { id: "kw_bib", label: "Bibliometrics", category: "core" },
-      { id: "kw_scisc", label: "Science of Science", category: "core" },
-      { id: "kw_sna", label: "Social Network Analysis", category: "core" },
-      { id: "kw_place", label: "Library as Place", category: "sub" },
-      { id: "kw_sh", label: "Structural Holes", category: "sub" },
-      { id: "kw_embed", label: "Network Embeddedness", category: "sub" }
+      { id: "kw_bibliometrics", label: "Bibliometrics", category: "core", linked_papers: ["Authors Embeddedness Project"] },
+      { id: "kw_science_of_science", label: "Science of Science", category: "core", linked_papers: ["Structural Holes Project"] },
+      { id: "kw_social_network_analysis", label: "Social Network Analysis", category: "core", linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"] },
+      { id: "kw_library_as_place", label: "Library as Place", category: "sub", linked_papers: ["Library Place-Shaping (2026)"] },
+      { id: "kw_academic_library", label: "Academic Library", category: "sub", linked_papers: ["Library Place-Shaping (2026)"] },
+      { id: "kw_perception_of_libraries", label: "Perception of Libraries", category: "sub", linked_papers: ["Library Place-Shaping (2026)"] },
+      { id: "kw_structural_holes", label: "Structural Holes", category: "sub", linked_papers: ["Structural Holes Project"] },
+      { id: "kw_collaboration", label: "Collaboration", category: "sub", linked_papers: ["Structural Holes Project"] },
+      { id: "kw_interdisciplinary_research", label: "Interdisciplinary Research", category: "sub", linked_papers: ["Structural Holes Project"] },
+      { id: "kw_field_maturation", label: "Field Maturation", category: "sub", linked_papers: ["Structural Holes Project"] },
+      { id: "kw_research_performance", label: "Research Performance", category: "sub", linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"] },
+      { id: "kw_network_embeddedness", label: "Network Embeddedness", category: "sub", linked_papers: ["Authors Embeddedness Project"] },
+      { id: "kw_bibliographic_coupling", label: "Bibliographic Coupling", category: "sub", linked_papers: ["Authors Embeddedness Project"] },
+      { id: "kw_collaboration_dynamics", label: "Collaboration Dynamics", category: "sub", linked_papers: ["Authors Embeddedness Project"] }
     ],
     methods: [
-      { id: "m_sna", label: "SNA", full_name: "Social Network Analysis", desc: "Graph metrics, structural holes, centralities, modularity" },
-      { id: "m_stat", label: "Classical Statistics", full_name: "Classical Statistical Methods", desc: "Descriptive & inferential statistics, regression" },
-      { id: "m_interview", label: "In-depth Interview", full_name: "Qualitative In-depth Interview", desc: "Interpretive phenomenological analysis" }
+      { id: "m_in_depth_interview", label: "In-depth Interview", full_name: "In-depth Interview", desc: "Qualitative Phenomenological Inquiry", linked_papers: ["Library Place-Shaping (2026)"] },
+      { id: "m_ipa", label: "IPA", full_name: "Interpretative Phenomenological Analysis", desc: "Phenomenological Analysis", linked_papers: ["Library Place-Shaping (2026)"] },
+      { id: "m_sna", label: "SNA", full_name: "Social Network Analysis", desc: "Network metrics, structural holes, centralities", linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"] },
+      { id: "m_classical_statistics", label: "Classical statistics", full_name: "Classical statistics", desc: "Descriptive & inferential statistics, regression", linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"] }
     ],
     papers: [
       {
@@ -36,8 +45,8 @@
         venue: "한국문헌정보학회지, 60(2), 315-336",
         status: "published",
         badge: "Published",
-        keywords: ["kw_bib", "kw_place"],
-        methods: ["m_interview", "m_stat"]
+        keywords: ["kw_library_as_place", "kw_academic_library", "kw_perception_of_libraries"],
+        methods: ["m_in_depth_interview", "m_ipa"]
       },
       {
         id: "p2",
@@ -45,10 +54,10 @@
         short_title: "Structural Holes Project",
         year: 2026,
         venue: "Under Review",
-        status: "ghost",
+        status: "ongoing",
         badge: "Under Review",
-        keywords: ["kw_scisc", "kw_sna", "kw_sh"],
-        methods: ["m_sna", "m_stat"]
+        keywords: ["kw_science_of_science", "kw_social_network_analysis", "kw_structural_holes", "kw_collaboration", "kw_interdisciplinary_research", "kw_field_maturation", "kw_research_performance"],
+        methods: ["m_sna", "m_classical_statistics"]
       },
       {
         id: "p3",
@@ -56,10 +65,10 @@
         short_title: "Authors Embeddedness Project",
         year: 2026,
         venue: "In Preparation",
-        status: "ghost",
-        badge: "In Prep",
-        keywords: ["kw_bib", "kw_sna", "kw_embed"],
-        methods: ["m_sna"]
+        status: "ongoing",
+        badge: "In Preparation",
+        keywords: ["kw_bibliometrics", "kw_social_network_analysis", "kw_network_embeddedness", "kw_bibliographic_coupling", "kw_collaboration_dynamics", "kw_research_performance"],
+        methods: ["m_sna", "m_classical_statistics"]
       }
     ]
   };
@@ -84,7 +93,10 @@
     var container = document.getElementById('ego-network-container');
     if (!container) return;
 
-    var rawData = (window.__EGO_DATA__ && window.__EGO_DATA__.keywords) ? window.__EGO_DATA__ : DEFAULT_EGO_DATA;
+    var rawData = (window.__EGO_DATA__ && window.__EGO_DATA__.keywords && window.__EGO_DATA__.keywords.length > 0)
+      ? window.__EGO_DATA__
+      : DEFAULT_EGO_DATA;
+
     var currentLens = 'keywords'; // Default lens: keywords | methods | papers
     var svg = d3.select('#ego-network-svg');
     var tooltip = d3.select('#ego-tooltip');
@@ -108,7 +120,7 @@
       keywordSub: '#60a5fa',      // Soft Blue
       method: '#10b981',          // Emerald Green
       paperPublished: '#f59e0b',  // Warm Amber / Gold
-      paperGhost: '#ec4899',      // Pink / Rose
+      paperOngoing: '#ec4899',    // Pink / Rose (On-going / Under Review)
       edgeDefault: 'rgba(156, 163, 175, 0.55)',
       edgeHighlight: '#2563eb'
     };
@@ -118,12 +130,12 @@
       .force('link', d3.forceLink().id(function (d) { return d.id; }))
       .force('charge', d3.forceManyBody().strength(function (d) {
         if (d.isEgo) return -280;
-        if (d.isPrimary) return -140;
-        return -50;
+        if (d.isPrimary) return -130;
+        return -45;
       }))
       .force('center', d3.forceCenter(centerX, centerY).strength(0.08))
       .force('collision', d3.forceCollide().radius(function (d) {
-        return (d.radius || 12) + 7;
+        return (d.radius || 12) + 6;
       }).iterations(2));
 
     // Project graph data based on selected lens
@@ -173,7 +185,8 @@
             isCore: isCore,
             radius: isCore ? 19 : 14,
             color: isCore ? colors.keywordCore : colors.keywordSub,
-            stroke: isCore ? '#1d4ed8' : '#3b82f6'
+            stroke: isCore ? '#1d4ed8' : '#3b82f6',
+            linked_papers: kw.linked_papers || []
           };
           addNode(kwNode);
 
@@ -196,11 +209,12 @@
             venue: p.venue,
             year: p.year,
             status: p.status,
+            badge: p.badge,
             type: 'paper',
             isSatellite: true,
             radius: isPub ? 9 : 8,
-            color: isPub ? colors.paperPublished : colors.paperGhost,
-            stroke: isPub ? '#d97706' : colors.paperGhost
+            color: isPub ? colors.paperPublished : colors.paperOngoing,
+            stroke: isPub ? '#d97706' : colors.paperOngoing
           };
           addNode(pNode);
 
@@ -230,7 +244,8 @@
             isPrimary: true,
             radius: 20,
             color: colors.method,
-            stroke: '#047857'
+            stroke: '#047857',
+            linked_papers: m.linked_papers || []
           };
           addNode(mNode);
 
@@ -275,11 +290,12 @@
             venue: p.venue,
             year: p.year,
             status: p.status,
+            badge: p.badge,
             type: 'paper',
             isSatellite: true,
             radius: isPub ? 9 : 8,
-            color: isPub ? colors.paperPublished : colors.paperGhost,
-            stroke: isPub ? '#d97706' : colors.paperGhost
+            color: isPub ? colors.paperPublished : colors.paperOngoing,
+            stroke: isPub ? '#d97706' : colors.paperOngoing
           };
           addNode(pNode);
 
@@ -298,7 +314,7 @@
         });
 
       } else if (lens === 'papers') {
-        // Papers (3 projects) are Primary nodes; Keywords & Methods are Satellites
+        // Papers are Primary nodes; Keywords & Methods are Satellites
         rawData.papers.forEach(function (p) {
           var isPub = p.status === 'published';
           var pNode = {
@@ -308,11 +324,12 @@
             venue: p.venue,
             year: p.year,
             status: p.status,
+            badge: p.badge,
             type: 'paper',
             isPrimary: true,
             radius: isPub ? 21 : 18,
-            color: isPub ? colors.paperPublished : colors.paperGhost,
-            stroke: isPub ? '#b45309' : '#e11d48'
+            color: isPub ? colors.paperPublished : colors.paperOngoing,
+            stroke: isPub ? '#b45309' : colors.paperOngoing
           };
           addNode(pNode);
 
@@ -363,7 +380,8 @@
                 isSatellite: true,
                 radius: 7,
                 color: colors.method,
-                stroke: '#047857'
+                stroke: '#047857',
+                linked_papers: [p.short_title || p.title]
               };
               addNode(mSat);
               links.push({ source: p.id, target: mSat.id, type: 'primary-satellite', distance: 35 });
@@ -381,7 +399,8 @@
                 isSatellite: true,
                 radius: 7,
                 color: colors.keywordSub,
-                stroke: '#3b82f6'
+                stroke: '#3b82f6',
+                linked_papers: [p.short_title || p.title]
               };
               addNode(kwSat);
               links.push({ source: p.id, target: kwSat.id, type: 'primary-satellite', distance: 35 });
@@ -438,7 +457,8 @@
       var nodeEnter = node.enter().append('g')
         .attr('class', function (d) {
           var cls = 'ego-node node-' + d.type;
-          if (d.status === 'ghost') cls += ' is-ghost';
+          var isOngoing = (d.status === 'ongoing' || d.status === 'ghost');
+          if (isOngoing) cls += ' is-ongoing is-ghost';
           return cls;
         })
         .call(d3.drag()
@@ -456,7 +476,7 @@
         .attr('stroke', colors.ego)
         .attr('stroke-width', 1.8);
 
-      // Main Node Circle with explicit colors & radius (NEVER radius=0)
+      // Main Node Circle with explicit colors & radius
       nodeEnter.append('circle')
         .attr('class', function (d) { return d.isEgo ? 'center-node' : 'orbit-node'; })
         .attr('r', function (d) { return d.radius || 14; })
@@ -464,10 +484,10 @@
         .attr('stroke', function (d) { return d.stroke || '#ffffff'; })
         .attr('stroke-width', function (d) { return d.isEgo ? 3 : 2; })
         .attr('stroke-dasharray', function (d) {
-          return d.status === 'ghost' ? '4, 3' : 'none';
+          return (d.status === 'ongoing' || d.status === 'ghost') ? '4, 3' : 'none';
         })
         .style('fill-opacity', function (d) {
-          return d.status === 'ghost' ? 0.35 : 1;
+          return (d.status === 'ongoing' || d.status === 'ghost') ? 0.35 : 1;
         });
 
       // Node Text Label
@@ -504,10 +524,10 @@
         .attr('fill', function (d) { return d.color || colors.ego; })
         .attr('stroke', function (d) { return d.stroke || '#ffffff'; })
         .attr('stroke-dasharray', function (d) {
-          return d.status === 'ghost' ? '4, 3' : 'none';
+          return (d.status === 'ongoing' || d.status === 'ghost') ? '4, 3' : 'none';
         })
         .style('fill-opacity', function (d) {
-          return d.status === 'ghost' ? 0.35 : 1;
+          return (d.status === 'ongoing' || d.status === 'ghost') ? 0.35 : 1;
         });
 
       node.select('text')
@@ -602,7 +622,7 @@
         .style('opacity', 1);
     }
 
-    // Tooltip formatting
+    // Enhanced Human-Friendly Tooltip formatting
     function showTooltip(event, d) {
       var titleHtml = '';
       var badgeHtml = '';
@@ -616,19 +636,23 @@
         titleHtml = d.title || d.label;
         if (d.status === 'published') {
           badgeHtml = '<span class="ego-tooltip-badge badge-published">Published (' + d.year + ')</span>';
-          bodyHtml = d.venue || '';
+          bodyHtml = d.venue ? '🏛️ ' + d.venue : 'Published paper';
         } else {
-          badgeHtml = '<span class="ego-tooltip-badge badge-ghost">Ghost &bull; ' + (d.venue || 'Under Review') + '</span>';
-          bodyHtml = 'Ongoing project / Manuscript under review';
+          var badgeText = d.badge || 'On-going';
+          badgeHtml = '<span class="ego-tooltip-badge badge-ongoing">On-going &bull; ' + badgeText + '</span>';
+          bodyHtml = d.venue ? '⏳ ' + d.venue : 'On-going research project';
         }
       } else if (d.type === 'method') {
         titleHtml = d.full_name || d.label;
         badgeHtml = '<span class="ego-tooltip-badge badge-published">METHOD</span>';
-        bodyHtml = d.desc || 'Core Analytical Framework';
+        var paperList = (d.linked_papers && d.linked_papers.length > 0) ? d.linked_papers.join(', ') : '';
+        bodyHtml = paperList ? '🛠️ 적용 연구: ' + paperList : (d.desc || '분석 프레임워크');
       } else if (d.type === 'keyword') {
         titleHtml = d.label;
-        badgeHtml = '<span class="ego-tooltip-badge badge-published">TOPIC</span>';
-        bodyHtml = d.isCore ? 'Core Research Domain' : 'Investigated Sub-field';
+        var badgeText = d.isCore ? 'CORE TOPIC' : 'TOPIC';
+        badgeHtml = '<span class="ego-tooltip-badge badge-published">' + badgeText + '</span>';
+        var paperList = (d.linked_papers && d.linked_papers.length > 0) ? d.linked_papers.join(', ') : '';
+        bodyHtml = paperList ? '📌 연계 연구: ' + paperList : (d.isCore ? '주요 연구 분야' : '세부 탐구 주제');
       }
 
       var html = '<div class="ego-tooltip-header">' +

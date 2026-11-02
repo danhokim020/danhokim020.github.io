@@ -9,59 +9,84 @@ ego:
   affiliation: "Library & Information Science"
 
 keywords:
+  - id: kw_academic_library
+    label: "Academic Library"
+    category: core
+    linked_papers: ["Library Place-Shaping (2026)"]
   - id: kw_bibliometrics
     label: "Bibliometrics"
     category: core
+    linked_papers: ["Authors Embeddedness Project"]
+  - id: kw_library_as_place
+    label: "Library as Place"
+    category: core
+    linked_papers: ["Library Place-Shaping (2026)"]
   - id: kw_science_of_science
     label: "Science of Science"
     category: core
+    linked_papers: ["Structural Holes Project"]
   - id: kw_social_network_analysis
     label: "Social Network Analysis"
     category: core
+    linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"]
   - id: kw_bibliographic_coupling
     label: "Bibliographic Coupling"
     category: sub
+    linked_papers: ["Authors Embeddedness Project"]
+  - id: kw_collaboration
+    label: "Collaboration"
+    category: sub
+    linked_papers: ["Structural Holes Project"]
   - id: kw_collaboration_dynamics
     label: "Collaboration Dynamics"
     category: sub
-  - id: kw_collaboration_network
-    label: "Collaboration Network"
-    category: sub
+    linked_papers: ["Authors Embeddedness Project"]
   - id: kw_field_maturation
     label: "Field Maturation"
     category: sub
+    linked_papers: ["Structural Holes Project"]
   - id: kw_interdisciplinary_research
     label: "Interdisciplinary Research"
     category: sub
-  - id: kw_library_as_place
-    label: "Library as Place"
-    category: sub
+    linked_papers: ["Structural Holes Project"]
   - id: kw_network_embeddedness
     label: "Network Embeddedness"
     category: sub
+    linked_papers: ["Authors Embeddedness Project"]
   - id: kw_perception_of_libraries
     label: "Perception of Libraries"
     category: sub
+    linked_papers: ["Library Place-Shaping (2026)"]
   - id: kw_research_performance
     label: "Research Performance"
     category: sub
+    linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"]
   - id: kw_structural_holes
     label: "Structural Holes"
     category: sub
+    linked_papers: ["Structural Holes Project"]
 
 methods:
   - id: m_in_depth_interview
     label: "In-depth Interview"
     full_name: "In-depth Interview"
     desc: "Methodology: In-depth Interview"
-  - id: m_classical_statistics
-    label: "Classical statistics"
-    full_name: "Classical statistics"
-    desc: "Methodology: Classical statistics"
+    linked_papers: ["Library Place-Shaping (2026)"]
+  - id: m_ipa
+    label: "IPA"
+    full_name: "IPA"
+    desc: "Methodology: IPA"
+    linked_papers: ["Library Place-Shaping (2026)"]
   - id: m_sna
     label: "SNA"
     full_name: "SNA"
     desc: "Methodology: SNA"
+    linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"]
+  - id: m_classical_statistics
+    label: "Classical statistics"
+    full_name: "Classical statistics"
+    desc: "Methodology: Classical statistics"
+    linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"]
 
 papers:
   - id: p1
@@ -71,17 +96,17 @@ papers:
     venue: "한국문헌정보학회지, 60(2), 315-336"
     status: published
     badge: "Published"
-    keywords: ["kw_bibliometrics", "kw_library_as_place", "kw_perception_of_libraries"]
-    methods: ["m_in_depth_interview", "m_classical_statistics"]
+    keywords: ["kw_library_as_place", "kw_academic_library", "kw_perception_of_libraries"]
+    methods: ["m_in_depth_interview", "m_ipa"]
 
   - id: p2
     title: "Structural Holes Project (26.04.~)"
     short_title: "Structural Holes Project"
     year: 2026
     venue: "Under Review"
-    status: ghost
+    status: ongoing
     badge: "Under Review"
-    keywords: ["kw_science_of_science", "kw_social_network_analysis", "kw_structural_holes", "kw_collaboration_network", "kw_interdisciplinary_research", "kw_field_maturation", "kw_research_performance"]
+    keywords: ["kw_science_of_science", "kw_social_network_analysis", "kw_structural_holes", "kw_collaboration", "kw_interdisciplinary_research", "kw_field_maturation", "kw_research_performance"]
     methods: ["m_sna", "m_classical_statistics"]
 
   - id: p3
@@ -89,8 +114,8 @@ papers:
     short_title: "Authors Embeddedness Project"
     year: 2026
     venue: "In Preparation"
-    status: ghost
-    badge: "Under Review"
-    keywords: ["kw_bibliometrics", "kw_social_network_analysis", "kw_network_embeddedness", "kw_bibliographic_coupling", "kw_collaboration_dynamics"]
-    methods: ["m_sna"]
+    status: ongoing
+    badge: "In Preparation"
+    keywords: ["kw_bibliometrics", "kw_social_network_analysis", "kw_network_embeddedness", "kw_bibliographic_coupling", "kw_collaboration_dynamics", "kw_research_performance"]
+    methods: ["m_sna", "m_classical_statistics"]
 
