@@ -47,27 +47,32 @@ latest_posts:
     </div>
   </div>
 
-  <!-- Right column: Biography & Research Profile -->
+  <!-- Right column: Biography & Research Profile (managed via _data/about.csv) -->
   <div class="ego-layout-right">
     <p>
-      Hello! I am <strong>Danho Kim</strong>, an academic researcher specializing in 
-      <strong>Bibliometrics</strong>, <strong>Science of Science</strong>, and <strong>Social Network Analysis (SNA)</strong>.
+      {{ site.data.about.greeting | default: "Hello! I am <strong>Danho Kim</strong>, an academic researcher specializing in <strong>Bibliometrics</strong>, <strong>Science of Science</strong>, and <strong>Social Network Analysis (SNA)</strong>." }}
     </p>
 
     <p>
-      My research investigates the structural and social dynamics of knowledge production, scholarly collaboration networks, and institutional spaces. Specifically, my work focuses on:
+      {{ site.data.about.intro_lead | default: "My research investigates the structural and social dynamics of knowledge production, scholarly collaboration networks, and institutional spaces. Specifically, my work focuses on:" }}
     </p>
     <ul>
-      <li><strong>Structural Holes & Collaboration Networks</strong>: Exploring how brokering positions across disciplinary boundaries influence research performance and field maturation.</li>
-      <li><strong>Author Embeddedness & Bibliographic Coupling</strong>: Analyzing author-level subject embeddedness and thematic evolution in scientific communities.</li>
-      <li><strong>Library Place-Shaping & User Perception</strong>: Phenomenological and empirical investigations into how academic libraries function as socially constructed spaces.</li>
+      {% if site.data.about.focus_points and site.data.about.focus_points.size > 0 %}
+        {% for item in site.data.about.focus_points %}
+        <li><strong>{{ item.title }}</strong>: {{ item.content }}</li>
+        {% endfor %}
+      {% else %}
+        <li><strong>Structural Holes & Collaboration Networks</strong>: Exploring how brokering positions across disciplinary boundaries influence research performance and field maturation.</li>
+        <li><strong>Author Embeddedness & Bibliographic Coupling</strong>: Analyzing author-level subject embeddedness and thematic evolution in scientific communities.</li>
+        <li><strong>Library Place-Shaping & User Perception</strong>: Phenomenological and empirical investigations into how academic libraries function as socially constructed spaces.</li>
+      {% endif %}
     </ul>
 
     <p>
-      I combine <strong>Social Network Analysis (SNA)</strong>, <strong>Classical Statistics</strong>, and <strong>In-depth Qualitative Inquiry</strong> to bridge quantitative graph metrics with rich contextual interpretations.
+      {{ site.data.about.methods_summary | default: "I combine <strong>Social Network Analysis (SNA)</strong>, <strong>Classical Statistics</strong>, and <strong>In-depth Qualitative Inquiry</strong> to bridge quantitative graph metrics with rich contextual interpretations." }}
     </p>
     <p style="font-size: 0.88rem; color: var(--global-text-color-light, #666);">
-      Feel free to interact with my <em>Research Ego-Network</em> on the left to navigate across my core topics, methods, and ongoing publications!
+      {{ site.data.about.footer_note | default: "Feel free to interact with my <em>Research Ego-Network</em> on the left to navigate across my core topics, methods, and ongoing publications!" }}
     </p>
   </div>
 </div>

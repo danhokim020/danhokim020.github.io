@@ -93,8 +93,8 @@ jobs:
           valueFile: "_config.yml"
           propertyPath: "giscus.repo"
           value: ${{ github.repository }}
-      - name: Sync Ego-Network from CSV 🔄
-        run: python bin/sync_ego_network.py
+      - name: Sync Site Data from CSVs 🔄
+        run: python bin/sync_site_data.py
       - name: Install and Build 🔧
         run: |
           sudo apt-get update && sudo apt-get install -y imagemagick
