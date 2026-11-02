@@ -143,16 +143,16 @@
 
 /* Ego Node Styling */
 .ego-node.node-ego circle.center-node {
-  fill: var(--global-theme-color, #2563eb);
-  stroke: #ffffff;
+  fill: #2563eb !important;
+  stroke: #ffffff !important;
   stroke-width: 2.5px;
-  filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.4));
+  filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.5));
 }
 
 .ego-node.node-ego circle.pulse-ring {
-  fill: none;
-  stroke: var(--global-theme-color, #2563eb);
-  stroke-width: 1.5px;
+  fill: none !important;
+  stroke: #3b82f6 !important;
+  stroke-width: 1.8px;
   opacity: 0.6;
   animation: ego-pulse-ring 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
 }

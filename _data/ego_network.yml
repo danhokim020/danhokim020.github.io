@@ -1,14 +1,8 @@
-# -----------------------------------------------------------------------------
-# Ego-Network Data for Danho Kim
-# 3-Lens Toggle Structure (Keywords | Methods | Papers)
-# -----------------------------------------------------------------------------
-
 ego:
   name: "Danho, Kim"
   label: "Bibliometrics & SNA Researcher"
   affiliation: "Library & Information Science"
 
-# Core and specific research keywords
 keywords:
   - id: kw_bib
     label: "Bibliometrics"
@@ -22,26 +16,13 @@ keywords:
   - id: kw_place
     label: "Library as Place"
     category: "sub"
-  - id: kw_percep
-    label: "Perception of Libraries"
-    category: "sub"
   - id: kw_sh
     label: "Structural Holes"
-    category: "sub"
-  - id: kw_collab
-    label: "Collaboration Network"
-    category: "sub"
-  - id: kw_interdisc
-    label: "Interdisciplinary Research"
     category: "sub"
   - id: kw_embed
     label: "Network Embeddedness"
     category: "sub"
-  - id: kw_coupling
-    label: "Bibliographic Coupling"
-    category: "sub"
 
-# Methodologies, analytical frameworks, and data collection tools
 methods:
   - id: m_sna
     label: "SNA"
@@ -56,7 +37,6 @@ methods:
     full_name: "Qualitative In-depth Interview"
     desc: "Interpretive phenomenological analysis"
 
-# Publications (Published + Under Review / In Preparation ghost nodes)
 papers:
   - id: p1
     title: "An Interpretive Phenomenological Approach to Library Place-Shaping and Perception of Libraries: Focusing on Student Users of Academic Libraries"
@@ -66,8 +46,8 @@ papers:
     venue: "한국문헌정보학회지, 60(2), 315-336"
     status: "published"
     badge: "Published"
-    keywords: [kw_bib, kw_place, kw_percep]
-    methods: [m_interview, m_stat]
+    keywords: ["kw_bib", "kw_place"]
+    methods: ["m_interview", "m_stat"]
 
   - id: p2
     title: "Structural Holes Project (26.04.~)"
@@ -77,8 +57,8 @@ papers:
     venue: "Under Review"
     status: "ghost"
     badge: "Under Review"
-    keywords: [kw_scisc, kw_sna, kw_sh, kw_collab, kw_interdisc]
-    methods: [m_sna, m_stat]
+    keywords: ["kw_scisc", "kw_sna", "kw_sh"]
+    methods: ["m_sna", "m_stat"]
 
   - id: p3
     title: "Authors Subject Embeddedness Project (26.07.~)"
@@ -88,5 +68,5 @@ papers:
     venue: "In Preparation"
     status: "ghost"
     badge: "In Prep"
-    keywords: [kw_bib, kw_sna, kw_embed, kw_coupling]
-    methods: [m_sna]
+    keywords: ["kw_bib", "kw_sna", "kw_embed"]
+    methods: ["m_sna"]

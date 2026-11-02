@@ -72,6 +72,7 @@ latest_posts:
   </div>
 </div>
 
+<script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
   window.__EGO_DATA__ = {{ site.data.ego_network | jsonify }};
 </script>
