@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://pumpkin020.github.io/my_homepage/sitemap.xml
