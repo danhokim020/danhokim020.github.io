@@ -3,17 +3,17 @@
 # -----------------------------------------------------------------------------
 
 title: blank # the website title (if blank, full name will be used instead)
-first_name: Gil-dong
+first_name: Danho
 middle_name:
-last_name: Hong
+last_name: Kim
 contact_note: >
-  Feel free to reach out via email or connect on social platforms.
+  Feel free to reach out via email or connect on academic networks.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Academic homepage of Gil-dong Hong, Ph.D. Student.
+  Academic homepage of Danho Kim, researcher in Bibliometrics, Science of Science, and Social Network Analysis.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
+keywords: bibliometrics, science-of-science, social-network-analysis, library-and-information-science, academic-website
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 apple_touch_icon: # image name in /assets/img/ (or a rooted path / absolute URL) used for iOS home-screen bookmarks; needs a real 180x180 PNG, since Safari ignores the emoji favicon above. Left empty, iOS falls back to a screenshot of the page.

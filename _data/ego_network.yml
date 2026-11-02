@@ -1,0 +1,92 @@
+# -----------------------------------------------------------------------------
+# Ego-Network Data for Danho Kim
+# 3-Lens Toggle Structure (Keywords | Methods | Papers)
+# -----------------------------------------------------------------------------
+
+ego:
+  name: "Danho, Kim"
+  label: "Bibliometrics & SNA Researcher"
+  affiliation: "Library & Information Science"
+
+# Core and specific research keywords
+keywords:
+  - id: kw_bib
+    label: "Bibliometrics"
+    category: "core"
+  - id: kw_scisc
+    label: "Science of Science"
+    category: "core"
+  - id: kw_sna
+    label: "Social Network Analysis"
+    category: "core"
+  - id: kw_place
+    label: "Library as Place"
+    category: "sub"
+  - id: kw_percep
+    label: "Perception of Libraries"
+    category: "sub"
+  - id: kw_sh
+    label: "Structural Holes"
+    category: "sub"
+  - id: kw_collab
+    label: "Collaboration Network"
+    category: "sub"
+  - id: kw_interdisc
+    label: "Interdisciplinary Research"
+    category: "sub"
+  - id: kw_embed
+    label: "Network Embeddedness"
+    category: "sub"
+  - id: kw_coupling
+    label: "Bibliographic Coupling"
+    category: "sub"
+
+# Methodologies, analytical frameworks, and data collection tools
+methods:
+  - id: m_sna
+    label: "SNA"
+    full_name: "Social Network Analysis"
+    desc: "Graph metrics, structural holes, centralities, cluster modularity"
+  - id: m_stat
+    label: "Classical Statistics"
+    full_name: "Classical Statistical Methods"
+    desc: "Regression, correlation, multivariate inference"
+  - id: m_interview
+    label: "In-depth Interview"
+    full_name: "Qualitative In-depth Interview"
+    desc: "Interpretive phenomenological analysis"
+
+# Publications (Published + Under Review / In Preparation ghost nodes)
+papers:
+  - id: p1
+    title: "An Interpretive Phenomenological Approach to Library Place-Shaping and Perception of Libraries: Focusing on Student Users of Academic Libraries"
+    short_title: "Library Place-Shaping (2026)"
+    authors: "Kim, D., & KIM, G."
+    year: 2026
+    venue: "한국문헌정보학회지, 60(2), 315-336"
+    status: "published"
+    badge: "Published"
+    keywords: [kw_bib, kw_place, kw_percep]
+    methods: [m_interview, m_stat]
+
+  - id: p2
+    title: "Structural Holes Project (26.04.~)"
+    short_title: "Structural Holes Project"
+    authors: "Danho Kim"
+    year: 2026
+    venue: "Under Review"
+    status: "ghost"
+    badge: "Under Review"
+    keywords: [kw_scisc, kw_sna, kw_sh, kw_collab, kw_interdisc]
+    methods: [m_sna, m_stat]
+
+  - id: p3
+    title: "Authors Subject Embeddedness Project (26.07.~)"
+    short_title: "Authors Embeddedness Project"
+    authors: "Danho Kim"
+    year: 2026
+    venue: "In Preparation"
+    status: "ghost"
+    badge: "In Prep"
+    keywords: [kw_bib, kw_sna, kw_embed, kw_coupling]
+    methods: [m_sna]
