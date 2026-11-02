@@ -1,0 +1,280 @@
+/* -----------------------------------------------------------------------------
+ * Ego-Network 3-Lens Interactive Visualization Styles
+ * Designed for Danho Kim's Research Homepage
+ * ----------------------------------------------------------------------------- */
+
+.ego-card {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto 1.5rem auto;
+  background: var(--global-card-bg-color, rgba(255, 255, 255, 0.85));
+  border: 1px solid var(--global-divider-color, rgba(0, 0, 0, 0.1));
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+  font-family: inherit;
+}
+
+[data-theme="dark"] .ego-card {
+  background: rgba(30, 30, 30, 0.75);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Header & Lens Selector */
+.ego-header {
+  padding: 0.75rem 0.85rem 0.5rem 0.85rem;
+  border-bottom: 1px solid var(--global-divider-color, rgba(0, 0, 0, 0.08));
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ego-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ego-card-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--global-text-color-light, #666);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.ego-live-badge {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 6px #10b981;
+  animation: ego-pulse-dot 2s infinite;
+}
+
+@keyframes ego-pulse-dot {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+.ego-lens-controls {
+  display: flex;
+  background: var(--global-bg-color, #f3f4f6);
+  padding: 3px;
+  border-radius: 9px;
+  gap: 2px;
+}
+
+[data-theme="dark"] .ego-lens-controls {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.ego-lens-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 5px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--global-text-color, #4b5563);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  user-select: none;
+}
+
+.ego-lens-btn:hover {
+  color: var(--global-theme-color, #2563eb);
+}
+
+.ego-lens-btn.active {
+  background: var(--global-card-bg-color, #ffffff);
+  color: var(--global-theme-color, #2563eb);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .ego-lens-btn.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: #60a5fa;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Visualization Canvas */
+.ego-canvas-wrap {
+  width: 100%;
+  height: 330px;
+  position: relative;
+  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.03) 0%, transparent 70%);
+}
+
+[data-theme="dark"] .ego-canvas-wrap {
+  background: radial-gradient(circle at center, rgba(96, 165, 250, 0.05) 0%, transparent 75%);
+}
+
+.ego-canvas-wrap svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Node Styles */
+.ego-node {
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.ego-node:hover {
+  filter: brightness(1.15);
+}
+
+.ego-node circle {
+  stroke-width: 2px;
+  transition: r 0.3s ease, stroke-width 0.2s ease;
+}
+
+/* Ego Node Styling */
+
+@keyframes ego-pulse-ring {
+  0% { r: 24px; opacity: 0.7; }
+  70% { r: 38px; opacity: 0; }
+  100% { r: 38px; opacity: 0; }
+}
+
+/* Ghost Nodes (Under review / In preparation) */
+.ego-node.is-ghost circle {
+  stroke-dasharray: 4, 3;
+  fill-opacity: 0.28 !important;
+}
+
+/* Link / Edge Styles */
+.ego-link {
+  stroke: var(--global-divider-color, rgba(156, 163, 175, 0.4));
+  stroke-width: 1.3px;
+  transition: stroke 0.2s ease, stroke-width 0.2s ease, opacity 0.2s ease;
+}
+
+.ego-link.is-satellite {
+  stroke-dasharray: 2, 2;
+  stroke-width: 1px;
+  opacity: 0.55;
+}
+
+.ego-link.highlighted {
+  stroke: var(--global-theme-color, #2563eb) !important;
+  stroke-width: 2.4px !important;
+  opacity: 1 !important;
+}
+
+/* Node Labels */
+.ego-label {
+  font-size: 9.5px;
+  font-weight: 600;
+  pointer-events: none;
+  text-anchor: middle;
+  dominant-baseline: central;
+  fill: var(--global-text-color, #1f2937);
+  transition: opacity 0.2s ease;
+  user-select: none;
+}
+
+[data-theme="dark"] .ego-label {
+  fill: #f3f4f6;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.ego-label.ego-center-label {
+  fill: #ffffff !important;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* Tooltip */
+.ego-tooltip {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  padding: 7px 10px;
+  background: var(--global-card-bg-color, rgba(255, 255, 255, 0.95));
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--global-divider-color, rgba(0, 0, 0, 0.12));
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  font-size: 0.73rem;
+  line-height: 1.35;
+  color: var(--global-text-color, #1f2937);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0;
+  transform: translateY(4px);
+  z-index: 10;
+}
+
+[data-theme="dark"] .ego-tooltip {
+  background: rgba(24, 24, 27, 0.92);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+
+.ego-tooltip.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ego-tooltip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 2px;
+}
+
+.ego-tooltip-title {
+  font-weight: 700;
+  color: var(--global-theme-color, #2563eb);
+}
+
+[data-theme="dark"] .ego-tooltip-title {
+  color: #93c5fd;
+}
+
+.ego-tooltip-badge {
+  font-size: 0.65rem;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge-published {
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+}
+
+.badge-ghost {
+  background: rgba(245, 158, 11, 0.15);
+  color: #d97706;
+}
+
+.ego-tooltip-body {
+  color: var(--global-text-color-light, #4b5563);
+  font-size: 0.7rem;
+}
+
+/* Footer Hint */
+.ego-footer-hint {
+  padding: 4px 10px 6px 10px;
+  font-size: 0.67rem;
+  color: var(--global-text-color-light, #9ca3af);
+  text-align: center;
+  border-top: 1px dashed var(--global-divider-color, rgba(0, 0, 0, 0.06));
+}
