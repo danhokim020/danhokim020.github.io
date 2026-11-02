@@ -107,7 +107,7 @@ def sync_publications():
             if abbr:
                 fields.append(f"  abbr        = {{{abbr}}},")
                 
-            bibtex_show = get_val(row, 'bibtex_show', 'true')
+            bibtex_show = get_val(row, 'bibtex_show', 'true').lower()
             fields.append(f"  bibtex_show = {{{bibtex_show}}},")
             
             title = get_val(row, 'title')
@@ -145,7 +145,7 @@ def sync_publications():
             if abstract:
                 fields.append(f"  abstract    = {{{abstract}}},")
                 
-            selected = get_val(row, 'selected', 'false')
+            selected = get_val(row, 'selected', 'false').lower()
             if selected:
                 fields.append(f"  selected    = {{{selected}}}")
                 

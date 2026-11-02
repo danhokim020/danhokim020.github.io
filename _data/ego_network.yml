@@ -72,7 +72,7 @@ keywords:
   - id: kw_structural_holes
     label: "Structural Holes"
     category: sub
-    description: "Brokers who bridge knowledge gaps between disciplines"
+    description: "Brokers who bridge gaps between different communities"
     linked_papers: ["Structural Holes Project"]
 
 methods:
