@@ -1,0 +1,74 @@
+cv:
+  name: Gil-dong Hong
+  label: Ph.D. Student / Researcher
+  email: your_email@university.ac.kr
+  location: Seoul, Republic of Korea
+  image: ""
+  summary: Ph.D. Student interested in Machine Learning, Computer Vision, and Artificial Intelligence.
+
+  social_networks:
+    - network: GitHub
+      username: pumpkin020
+    - network: Google Scholar
+      username: your_scholar_id
+    - network: LinkedIn
+      username: your_linkedin_id
+
+  sections:
+    Education:
+      - institution: Your University Name
+        location: Seoul, Republic of Korea
+        area: Computer Science and Engineering
+        studyType: Ph.D. in Computer Science
+        start_date: 2024
+        end_date: Present
+        highlights:
+          - Advisor: Prof. [Advisor Name]
+          - Research Focus: Deep Learning & Representation Learning
+
+      - institution: Your Undergraduate University
+        location: Seoul, Republic of Korea
+        area: Electrical Engineering / Computer Science
+        studyType: B.S.
+        start_date: 2020
+        end_date: 2024
+        highlights:
+          - Summa Cum Laude / Honors
+
+    Research Experience:
+      - company: Your Lab / AI Research Institute
+        position: Graduate Research Assistant
+        location: Seoul, Republic of Korea
+        start_date: 2024
+        end_date: Present
+        summary: Conducting research on advanced deep neural network architectures and representations.
+        highlights:
+          - Published papers in top-tier machine learning conferences.
+          - Developed open-source benchmark frameworks.
+
+      - company: Research Lab / Tech Company
+        position: Research Intern
+        location: Seoul, Republic of Korea
+        start_date: 2023-06
+        end_date: 2023-08
+        summary: Summer Research Internship.
+
+    Honors and Awards:
+      - title: Outstanding Graduate Student Fellowship
+        date: 2025
+        awarder: Ministry of Science and ICT
+        summary: Awarded for excellence in graduate research.
+
+      - title: Best Paper Award / Travel Grant
+        date: 2024
+        awarder: Academic Conference
+
+    Skills:
+      - name: Programming & Frameworks
+        level: Advanced
+        keywords:
+          - Python
+          - PyTorch
+          - C/C++
+          - Git
+          - Linux
