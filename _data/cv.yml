@@ -3,10 +3,10 @@
 cv:
   name: "Danho Kim"
   label: "Master's Student in Library and Information Science"
-  email: ""
+  email: "danhokim@yonsei.ac.kr"
   location: "Seoul, Republic of Korea"
   image: ""
-  summary: "Researcher specializing in Bibliometrics, Science of Science, and Social Network Analysis (SNA)."
+  summary: ""
 
   social_networks:
     - network: GitHub
@@ -21,11 +21,16 @@ cv:
         start_date: 2026
         end_date: Present
         highlights:
-          - "Research Focus: Bibliometrics, Science of Science, Social Network Analysis (SNA)"
+          - "Research Interest : Bibliometrics, Science of Science, Social Network Analysis (SNA)"
+      - institution: "Yonsei Univ."
+        location: "Seoul, Republic of Korea"
+        area: "Library & Information Science, Applied Statistics"
+        studyType: "BA"
+        start_date: 2021
+        end_date: 2025
 
     Skills:
       - name: "Research & Analytics"
-        level: "Advanced"
         keywords:
           - "Social Network Analysis (SNA)"
           - "Classical Statistics"

@@ -199,7 +199,7 @@ def sync_cv():
     profile = {
         "name": "Danho Kim",
         "label": "",
-        "email": "",
+        "email": "danhokim@yonsei.ac.kr",
         "location": "",
         "image": "",
         "summary": ""
@@ -225,8 +225,11 @@ def sync_cv():
             if sec == 'profile':
                 if title: profile['name'] = title
                 if subtitle: profile['label'] = subtitle
+                if institution and '@' in institution: profile['email'] = institution
                 if loc: profile['location'] = loc
                 if details: profile['summary'] = details
+            elif sec == 'email':
+                profile['email'] = title or subtitle or institution
             elif sec == 'social':
                 if title and institution:
                     social_networks.append({'network': title, 'username': institution})
