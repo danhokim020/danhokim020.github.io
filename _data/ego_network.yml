@@ -96,6 +96,7 @@ papers:
     venue: "한국문헌정보학회지, 60(2), 315-336"
     status: published
     badge: "Published"
+    description: "대학도서관 학생 이용자의 장소성 형성과 인식에 관한 현상학적 질적 연구"
     keywords: ["kw_library_as_place", "kw_academic_library", "kw_perception_of_libraries"]
     methods: ["m_in_depth_interview", "m_ipa"]
 
@@ -106,6 +107,7 @@ papers:
     venue: "Under Review"
     status: ongoing
     badge: "Under Review"
+    description: "학제 간 협업 네트워크에서 구조적 공백이 연구 성과 및 분과 성숙에 미치는 영향"
     keywords: ["kw_science_of_science", "kw_social_network_analysis", "kw_structural_holes", "kw_collaboration", "kw_interdisciplinary_research", "kw_field_maturation", "kw_research_performance"]
     methods: ["m_sna", "m_classical_statistics"]
 
@@ -116,6 +118,7 @@ papers:
     venue: "In Preparation"
     status: ongoing
     badge: "In Preparation"
+    description: "저자 수준의 주제 매몰성과 동시인용 결합을 통한 학술 협업 동학 분석"
     keywords: ["kw_bibliometrics", "kw_social_network_analysis", "kw_network_embeddedness", "kw_bibliographic_coupling", "kw_collaboration_dynamics", "kw_research_performance"]
     methods: ["m_sna", "m_classical_statistics"]
 

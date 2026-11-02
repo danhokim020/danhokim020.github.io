@@ -27,12 +27,12 @@ def slugify(text, prefix=""):
     return f"{prefix}{slug}" if prefix else slug
 
 def clean_list(cell):
-    """Split string by semicolon or comma, stripping whitespace."""
+    """Split string by either comma or semicolon, stripping whitespace cleanly."""
     if not cell:
         return []
-    # If cell contains semicolon, prefer semicolon split; otherwise comma
-    delimiters = ';' if ';' in cell else ','
-    items = [item.strip() for item in cell.split(delimiters)]
+    # Normalize both semicolons and commas to comma delimiter
+    normalized = cell.replace(';', ',')
+    items = [item.strip() for item in normalized.split(',')]
     return [item for item in items if item]
 
 def format_yaml_str(val):
@@ -124,6 +124,8 @@ def sync_network():
                     method_map[m_id]["papers"].append(short_title)
                     paper_m_ids.append(m_id)
                     
+                description = row.get('description', '').strip()
+
                 papers.append({
                     "id": paper_id,
                     "title": title,
@@ -132,6 +134,7 @@ def sync_network():
                     "badge": badge,
                     "year": year,
                     "venue": venue,
+                    "description": description,
                     "keywords": paper_kw_ids,
                     "methods": paper_m_ids
                 })
@@ -187,6 +190,8 @@ def sync_network():
         lines.append(f"    venue: {format_yaml_str(p['venue'])}")
         lines.append(f"    status: {p['status']}")
         lines.append(f"    badge: {format_yaml_str(p['badge'])}")
+        if p.get('description'):
+            lines.append(f"    description: {format_yaml_str(p['description'])}")
         
         # Keywords array
         kw_formatted = ", ".join([f'"{k}"' for k in p['keywords']])

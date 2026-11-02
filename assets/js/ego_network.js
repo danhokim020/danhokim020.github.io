@@ -45,6 +45,7 @@
         venue: "한국문헌정보학회지, 60(2), 315-336",
         status: "published",
         badge: "Published",
+        description: "대학도서관 학생 이용자의 장소성 형성과 인식에 관한 현상학적 질적 연구",
         keywords: ["kw_library_as_place", "kw_academic_library", "kw_perception_of_libraries"],
         methods: ["m_in_depth_interview", "m_ipa"]
       },
@@ -56,6 +57,7 @@
         venue: "Under Review",
         status: "ongoing",
         badge: "Under Review",
+        description: "학제 간 협업 네트워크에서 구조적 공백이 연구 성과 및 분과 성숙에 미치는 영향",
         keywords: ["kw_science_of_science", "kw_social_network_analysis", "kw_structural_holes", "kw_collaboration", "kw_interdisciplinary_research", "kw_field_maturation", "kw_research_performance"],
         methods: ["m_sna", "m_classical_statistics"]
       },
@@ -67,6 +69,7 @@
         venue: "In Preparation",
         status: "ongoing",
         badge: "In Preparation",
+        description: "저자 수준의 주제 매몰성과 동시인용 결합을 통한 학술 협업 동학 분석",
         keywords: ["kw_bibliometrics", "kw_social_network_analysis", "kw_network_embeddedness", "kw_bibliographic_coupling", "kw_collaboration_dynamics", "kw_research_performance"],
         methods: ["m_sna", "m_classical_statistics"]
       }
@@ -206,6 +209,7 @@
             realId: p.id,
             label: p.short_title || p.title,
             title: p.title,
+            description: p.description || '',
             venue: p.venue,
             year: p.year,
             status: p.status,
@@ -229,6 +233,28 @@
                 });
               }
             });
+          }
+        });
+
+        // Dynamic co-occurrence edges between keywords listed in the same paper (comma-based)
+        var kwPairs = {};
+        rawData.papers.forEach(function (p) {
+          if (p.keywords && p.keywords.length > 1) {
+            for (var ki = 0; ki < p.keywords.length; ki++) {
+              for (var kj = ki + 1; kj < p.keywords.length; kj++) {
+                var k1 = p.keywords[ki], k2 = p.keywords[kj];
+                var pairKey = [k1, k2].sort().join('--');
+                if (!kwPairs[pairKey] && nodeMap[k1] && nodeMap[k2]) {
+                  kwPairs[pairKey] = true;
+                  links.push({
+                    source: k1,
+                    target: k2,
+                    type: 'inter-keyword',
+                    distance: 70
+                  });
+                }
+              }
+            }
           }
         });
 
@@ -321,6 +347,7 @@
             id: p.id,
             label: p.short_title || p.title,
             title: p.title,
+            description: p.description || '',
             venue: p.venue,
             year: p.year,
             status: p.status,
@@ -636,12 +663,13 @@
         titleHtml = d.title || d.label;
         if (d.status === 'published') {
           badgeHtml = '<span class="ego-tooltip-badge badge-published">Published (' + d.year + ')</span>';
-          bodyHtml = d.venue ? '🏛️ ' + d.venue : 'Published paper';
         } else {
           var badgeText = d.badge || 'On-going';
           badgeHtml = '<span class="ego-tooltip-badge badge-ongoing">On-going &bull; ' + badgeText + '</span>';
-          bodyHtml = d.venue ? '⏳ ' + d.venue : 'On-going research project';
         }
+        var descHtml = d.description ? '<div style="font-size: 0.72rem; font-weight: 500; margin-bottom: 3px; color: var(--global-text-color, #1f2937); line-height: 1.35;">📝 ' + d.description + '</div>' : '';
+        var venueHtml = d.venue ? '<div style="font-size: 0.67rem; color: var(--global-text-color-light, #6b7280);">' + (d.status === 'published' ? '🏛️ ' : '⏳ ') + d.venue + '</div>' : '';
+        bodyHtml = descHtml + venueHtml;
       } else if (d.type === 'method') {
         titleHtml = d.full_name || d.label;
         badgeHtml = '<span class="ego-tooltip-badge badge-published">METHOD</span>';
