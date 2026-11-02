@@ -20,9 +20,9 @@ latest_posts:
 
 <link rel="stylesheet" href="{{ '/assets/css/ego_network.css' | relative_url }}">
 
-<div class="row align-items-start mt-2 mb-4">
-  <!-- Right column: Interactive Ego-Network Card (Desktop right, Mobile top) -->
-  <div class="col-12 col-md-5 order-md-2 mb-4 mb-md-0">
+<div class="ego-layout-row">
+  <!-- Left column: Interactive Ego-Network Card -->
+  <div class="ego-layout-left">
     <div id="ego-network-container" class="ego-card">
       <div class="ego-header">
         <div class="ego-title-row">
@@ -47,8 +47,8 @@ latest_posts:
     </div>
   </div>
 
-  <!-- Left column: Biography & Research Profile -->
-  <div class="col-12 col-md-7 order-md-1">
+  <!-- Right column: Biography & Research Profile -->
+  <div class="ego-layout-right">
     <p>
       Hello! I am <strong>Danho Kim</strong>, an academic researcher specializing in 
       <strong>Bibliometrics</strong>, <strong>Science of Science</strong>, and <strong>Social Network Analysis (SNA)</strong>.
@@ -67,7 +67,7 @@ latest_posts:
       I combine <strong>Social Network Analysis (SNA)</strong>, <strong>Classical Statistics</strong>, and <strong>In-depth Qualitative Inquiry</strong> to bridge quantitative graph metrics with rich contextual interpretations.
     </p>
     <p style="font-size: 0.88rem; color: var(--global-text-color-light, #666);">
-      Feel free to interact with my <em>Research Ego-Network</em> on the right to navigate across my core topics, methods, and ongoing publications!
+      Feel free to interact with my <em>Research Ego-Network</em> on the left to navigate across my core topics, methods, and ongoing publications!
     </p>
   </div>
 </div>

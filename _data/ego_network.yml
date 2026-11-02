@@ -12,98 +12,93 @@ keywords:
   - id: kw_bibliometrics
     label: "Bibliometrics"
     category: core
-    description: "학술 문헌 빅데이터 및 인용 네트워크 계량 분석"
-    linked_papers: ["Authors Embeddedness Project"]
+    description: "Quantitative analysis of large-scale scholarly literature and citation networks"
+    linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"]
+  - id: kw_sna
+    label: "SNA"
+    category: core
+    description: "Social network analysis (measurements, community detection, ERGM...)"
+    linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"]
   - id: kw_science_of_science
     label: "Science of Science"
     category: core
-    description: "과학학: 지식 생산 구조와 학술 협업 동학 탐구"
-    linked_papers: ["Structural Holes Project"]
-  - id: kw_social_network_analysis
-    label: "Social Network Analysis"
-    category: core
-    description: "사회연결망분석: 연구자 및 학문 간 관계망 구조 분석"
+    description: "Study of how knowledge is produced and how scholarly collaboration evolves"
     linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"]
   - id: kw_academic_library
     label: "Academic Library"
     category: sub
-    description: "대학도서관: 학술 연구와 학생 이용자의 핵심 공간"
+    description: "University libraries as core spaces for scholarly research and student users"
     linked_papers: ["Library Place-Shaping (2026)"]
   - id: kw_bibliographic_coupling
     label: "Bibliographic Coupling"
     category: sub
-    description: "서지결합분석: 공유 인용 문헌 기반 주제 유사도 측정"
+    description: "a bibliometric method used to measure the topical similarity between two scientific documents based on the common references they cite"
     linked_papers: ["Authors Embeddedness Project"]
-  - id: kw_collaboration
-    label: "Collaboration"
-    category: sub
-    description: "연구자 간 공동 연구 및 지식 공유 협력"
-    linked_papers: ["Structural Holes Project"]
   - id: kw_collaboration_dynamics
     label: "Collaboration Dynamics"
     category: sub
-    description: "협업 동학: 연구자 간 협력 관계의 형성과 진화"
-    linked_papers: ["Authors Embeddedness Project"]
+    description: "The formation and evolution of collaborative ties among researchers"
+    linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"]
   - id: kw_field_maturation
     label: "Field Maturation"
     category: sub
-    description: "학문 분과 성숙: 연구 주제의 진화와 학문적 정립 과정"
+    description: "The evolution of research topics and the process by which a field becomes established"
     linked_papers: ["Structural Holes Project"]
   - id: kw_interdisciplinary_research
     label: "Interdisciplinary Research"
     category: sub
-    description: "다학제 연구: 서로 다른 학문 분야 간의 융합과 교류"
+    description: "Integration and exchange across different disciplines"
     linked_papers: ["Structural Holes Project"]
   - id: kw_library_as_place
     label: "Library as Place"
     category: sub
-    description: "도서관 장소성: 사회적으로 구성되는 물리적·인식적 공간"
+    description: "The library as a socially constructed physical and perceptual space"
     linked_papers: ["Library Place-Shaping (2026)"]
   - id: kw_network_embeddedness
     label: "Network Embeddedness"
     category: sub
-    description: "연결망 매몰성: 학술 커뮤니티 내 연구자의 관계적 위치"
+    description: "how human behavior, economic actions, and social exchanges are deeply rooted in and shaped by webs of social relationships"
     linked_papers: ["Authors Embeddedness Project"]
   - id: kw_perception_of_libraries
     label: "Perception of Libraries"
     category: sub
-    description: "도서관 인식: 이용자 경험과 공간적 가치 평가"
+    description: "Users’ experiences and their valuation of library space"
     linked_papers: ["Library Place-Shaping (2026)"]
   - id: kw_research_performance
     label: "Research Performance"
     category: sub
-    description: "연구 성과: 학술적 영향력 및 질적·양적 연구 산출물"
+    description: "Scholarly impact and other measurements about research output"
     linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"]
   - id: kw_structural_holes
     label: "Structural Holes"
     category: sub
-    description: "구조적 공백: 분과 간 지식 중개자(Broker) 위치 탐구"
+    description: "Brokers who bridge knowledge gaps between disciplines"
     linked_papers: ["Structural Holes Project"]
 
 methods:
   - id: m_sna
     label: "SNA"
     full_name: "SNA"
-    desc: "사회연결망분석 (중심성, 구조적 공백, 군집 모듈성 분석)"
-    description: "사회연결망분석 (중심성, 구조적 공백, 군집 모듈성 분석)"
+    desc: "Social network analysis (measurements, community detection, ERGM...)"
+    description: "Social network analysis (measurements, community detection, ERGM...)"
     linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"]
   - id: m_classical_statistics
     label: "Classical statistics"
     full_name: "Classical statistics"
-    desc: "기술/추론 통계 및 회귀분석, 다변량 통계 모형"
-    description: "기술/추론 통계 및 회귀분석, 다변량 통계 모형"
+    desc: "Descriptive and inferential statistics, regression, and multivariate models"
+    description: "Descriptive and inferential statistics, regression, and multivariate models"
     linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"]
   - id: m_in_depth_interview
     label: "In-depth Interview"
     full_name: "In-depth Interview"
-    desc: "연구 참여자 심층 면담을 통한 질적 현상학적 분석"
-    description: "연구 참여자 심층 면담을 통한 질적 현상학적 분석"
+    desc: "Qualitative phenomenological analysis based on in-depth interviews with participants"
+    description: "Qualitative phenomenological analysis based on in-depth interviews with participants"
     linked_papers: ["Library Place-Shaping (2026)"]
   - id: m_ipa
     label: "IPA"
     full_name: "IPA"
-    desc: "해석학적 현상학적 분석 (Interpretative Phenomenological Analysis)"
-    description: "해석학적 현상학적 분석 (Interpretative Phenomenological Analysis)"
+    desc: "Interpretative Phenomenological Analysis of how participants make sense of lived experience"
+    description: "Interpretative Phenomenological Analysis of how participants make sense of lived experience"
     linked_papers: ["Library Place-Shaping (2026)"]
 
 papers:
@@ -114,7 +109,7 @@ papers:
     venue: "한국문헌정보학회지, 60(2), 315-336"
     status: published
     badge: "Published"
-    description: "대학도서관 학생 이용자의 장소성 형성과 인식에 관한 현상학적 질적 연구"
+    description: "A phenomenological qualitative study of how student users shape and perceive library place in academic libraries"
     keywords: ["kw_library_as_place", "kw_academic_library", "kw_perception_of_libraries"]
     methods: ["m_in_depth_interview", "m_ipa"]
 
@@ -125,8 +120,8 @@ papers:
     venue: "Under Review"
     status: ongoing
     badge: "Under Review"
-    description: "학제 간 협업 네트워크에서 구조적 공백이 연구 성과 및 분과 성숙에 미치는 영향"
-    keywords: ["kw_science_of_science", "kw_social_network_analysis", "kw_structural_holes", "kw_collaboration", "kw_interdisciplinary_research", "kw_field_maturation", "kw_research_performance"]
+    description: "Still Working..."
+    keywords: ["kw_science_of_science", "kw_bibliometrics", "kw_sna", "kw_structural_holes", "kw_collaboration_dynamics", "kw_interdisciplinary_research", "kw_field_maturation", "kw_research_performance"]
     methods: ["m_sna", "m_classical_statistics"]
 
   - id: p3
@@ -136,7 +131,7 @@ papers:
     venue: "In Preparation"
     status: ongoing
     badge: "In Preparation"
-    description: "저자 수준의 주제 매몰성과 동시인용 결합을 통한 학술 협업 동학 분석"
-    keywords: ["kw_bibliometrics", "kw_social_network_analysis", "kw_network_embeddedness", "kw_bibliographic_coupling", "kw_collaboration_dynamics", "kw_research_performance"]
+    description: "Still Working..."
+    keywords: ["kw_science_of_science", "kw_bibliometrics", "kw_sna", "kw_network_embeddedness", "kw_bibliographic_coupling", "kw_collaboration_dynamics", "kw_research_performance"]
     methods: ["m_sna", "m_classical_statistics"]
 
