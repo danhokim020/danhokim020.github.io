@@ -149,8 +149,9 @@
   100% { r: 38px; opacity: 0; }
 }
 
-/* Ghost Nodes (Under review / In preparation) */
-.ego-node.is-ghost circle {
+/* Ghost / On-going Nodes (Under review / In preparation) */
+.ego-node.is-ghost circle,
+.ego-node.is-ongoing circle {
   stroke-dasharray: 4, 3;
   fill-opacity: 0.28 !important;
 }
@@ -260,9 +261,10 @@
   color: #059669;
 }
 
-.badge-ghost {
-  background: rgba(245, 158, 11, 0.15);
-  color: #d97706;
+
+.badge-ongoing {
+  background: rgba(236, 72, 153, 0.15);
+  color: #db2777;
 }
 
 .ego-tooltip-body {
