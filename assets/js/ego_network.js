@@ -242,15 +242,27 @@
           });
         });
 
-        // Inter-method connection between SNA and Statistics
-        if (nodeMap['m_sna'] && nodeMap['m_stat']) {
-          links.push({
-            source: 'm_sna',
-            target: 'm_stat',
-            type: 'inter-primary',
-            distance: 60
-          });
-        }
+        // Dynamic inter-method connections for co-occurring methods in the same paper
+        var methodPairs = {};
+        rawData.papers.forEach(function (p) {
+          if (p.methods && p.methods.length > 1) {
+            for (var i = 0; i < p.methods.length; i++) {
+              for (var j = i + 1; j < p.methods.length; j++) {
+                var m1 = p.methods[i], m2 = p.methods[j];
+                var pairKey = [m1, m2].sort().join('--');
+                if (!methodPairs[pairKey] && nodeMap[m1] && nodeMap[m2]) {
+                  methodPairs[pairKey] = true;
+                  links.push({
+                    source: m1,
+                    target: m2,
+                    type: 'inter-primary',
+                    distance: 65
+                  });
+                }
+              }
+            }
+          }
+        });
 
         // Papers as satellite dots orbiting methods
         rawData.papers.forEach(function (p) {
@@ -312,14 +324,30 @@
           });
         });
 
-        // Connect p2 and p3 (shared SNA/Bibliometrics interest)
-        if (nodeMap['p2'] && nodeMap['p3']) {
-          links.push({
-            source: 'p2',
-            target: 'p3',
-            type: 'inter-primary',
-            distance: 70
-          });
+        // Dynamically connect papers that share keywords
+        var paperPairs = {};
+        for (var pi = 0; pi < rawData.papers.length; pi++) {
+          for (var pj = pi + 1; pj < rawData.papers.length; pj++) {
+            var pa = rawData.papers[pi];
+            var pb = rawData.papers[pj];
+            if (pa.keywords && pb.keywords) {
+              var sharedKws = pa.keywords.filter(function (k) {
+                return pb.keywords.indexOf(k) !== -1;
+              });
+              if (sharedKws.length > 0 && nodeMap[pa.id] && nodeMap[pb.id]) {
+                var pPairKey = [pa.id, pb.id].sort().join('--');
+                if (!paperPairs[pPairKey]) {
+                  paperPairs[pPairKey] = true;
+                  links.push({
+                    source: pa.id,
+                    target: pb.id,
+                    type: 'inter-primary',
+                    distance: 75
+                  });
+                }
+              }
+            }
+          }
         }
 
         // Add method & keyword satellites around each paper

@@ -13,6 +13,7 @@ on:
       - "**.liquid"
       - "**/*.md"
       - "**.yml"
+      - "**.csv"
       - "Gemfile"
       - "Gemfile.lock"
       - "!.github/workflows/axe.yml"
@@ -40,6 +41,7 @@ on:
       - "**.liquid"
       - "**/*.md"
       - "**.yml"
+      - "**.csv"
       - "Gemfile"
       - "Gemfile.lock"
       - "!.github/workflows/axe.yml"
@@ -91,6 +93,8 @@ jobs:
           valueFile: "_config.yml"
           propertyPath: "giscus.repo"
           value: ${{ github.repository }}
+      - name: Sync Ego-Network from CSV 🔄
+        run: python bin/sync_ego_network.py
       - name: Install and Build 🔧
         run: |
           sudo apt-get update && sudo apt-get install -y imagemagick
