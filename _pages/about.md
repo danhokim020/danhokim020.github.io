@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Researcher in Bibliometrics, Science of Science & Social Network Analysis
+subtitle: Master's Student
 
 profile: false # replaced with interactive 3-lens ego-network widget below
 
@@ -47,30 +47,26 @@ latest_posts:
     </div>
   </div>
 
-  <!-- Right column: Biography & Research Profile (managed via _data/about.csv) -->
+  <!-- Right column: Biography & Research Profile (managed via _csv/about.csv) -->
   <div class="ego-layout-right">
-    <p>
-      {{ site.data.about.greeting | default: "Hello! I am <strong>Danho Kim</strong>, an academic researcher specializing in <strong>Bibliometrics</strong>, <strong>Science of Science</strong>, and <strong>Social Network Analysis (SNA)</strong>." }}
-    </p>
+    {% if site.data.about.paragraphs and site.data.about.paragraphs.size > 0 %}
+      {% for p in site.data.about.paragraphs %}
+        <p>{{ p }}</p>
+      {% endfor %}
+    {% else %}
+      <p>
+        I am a master’s student advised by Professor <a href="https://snis.yonsei.ac.kr/" target="_blank" rel="noopener noreferrer">Ji-Hong Park</a>.
+      </p>
 
-    <p>
-      {{ site.data.about.intro_lead | default: "My research investigates the structural and social dynamics of knowledge production, scholarly collaboration networks, and institutional spaces. Specifically, my work focuses on:" }}
-    </p>
-    <ul>
-      {% if site.data.about.focus_points and site.data.about.focus_points.size > 0 %}
-        {% for item in site.data.about.focus_points %}
-        <li><strong>{{ item.title }}</strong>: {{ item.content }}</li>
-        {% endfor %}
-      {% else %}
-        <li><strong>Structural Holes & Collaboration Networks</strong>: Exploring how brokering positions across disciplinary boundaries influence research performance and field maturation.</li>
-        <li><strong>Author Embeddedness & Bibliographic Coupling</strong>: Analyzing author-level subject embeddedness and thematic evolution in scientific communities.</li>
-        <li><strong>Library Place-Shaping & User Perception</strong>: Phenomenological and empirical investigations into how academic libraries function as socially constructed spaces.</li>
-      {% endif %}
-    </ul>
+      <p>
+        I study social networks, scholarly communication, bibliometrics, and the science of science.
+      </p>
 
-    <p>
-      {{ site.data.about.methods_summary | default: "I combine <strong>Social Network Analysis (SNA)</strong>, <strong>Classical Statistics</strong>, and <strong>In-depth Qualitative Inquiry</strong> to bridge quantitative graph metrics with rich contextual interpretations." }}
-    </p>
+      <p>
+        Network theory moves beyond the dualism of individual attributes and social institutions and norms, explaining human interaction at the meso level. From this perspective, I examine scholarly communication as a relational phenomenon.
+      </p>
+    {% endif %}
+
     <p style="font-size: 0.88rem; color: var(--global-text-color-light, #666);">
       {{ site.data.about.footer_note | default: "Feel free to interact with my <em>Research Ego-Network</em> on the left to navigate across my core topics, methods, and ongoing publications!" }}
     </p>
