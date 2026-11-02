@@ -292,7 +292,6 @@ def sync_cv():
         f"  email: {format_yaml_str(profile['email'])}",
         f"  location: {format_yaml_str(profile['location'])}",
         '  image: ""',
-        f"  summary: {format_yaml_str(profile['summary'])}",
         "",
         "  social_networks:"
     ]
