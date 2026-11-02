@@ -9,6 +9,12 @@ nav_order: 1
 
 <!-- _pages/publications.md -->
 
+<style>
+  a.bibtex, .bibtex.btn, a.btn.bibtex {
+    display: none !important;
+  }
+</style>
+
 <!-- Bibsearch Feature -->
 
 {% include bib_search.liquid %}

@@ -48,6 +48,11 @@
   }
 }
 
+/* Publication Bib Button Removal */
+a.bibtex, .bibtex.btn, a.btn.bibtex, .publications a.bibtex {
+  display: none !important;
+}
+
 .ego-card {
   width: 100%;
   max-width: 360px;

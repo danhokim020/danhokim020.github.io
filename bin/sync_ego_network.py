@@ -47,7 +47,9 @@ def sync_network():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     root_dir = os.path.abspath(os.path.join(script_dir, ".."))
     
-    csv_path = os.path.join(root_dir, "_data", "ego_network.csv")
+    csv_path = os.path.join(root_dir, "_csv", "ego_network.csv")
+    if not os.path.exists(csv_path):
+        csv_path = os.path.join(root_dir, "_data", "ego_network.csv")
     yml_path = os.path.join(root_dir, "_data", "ego_network.yml")
     
     if not os.path.exists(csv_path):

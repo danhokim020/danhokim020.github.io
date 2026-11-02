@@ -6,6 +6,7 @@ on:
       - master
       - main
     paths:
+      - "_csv/**"
       - "assets/**"
       - "**.bib"
       - "**.html"
@@ -34,6 +35,7 @@ on:
       - master
       - main
     paths:
+      - "_csv/**"
       - "assets/**"
       - "**.bib"
       - "**.html"
