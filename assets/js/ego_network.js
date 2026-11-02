@@ -15,26 +15,26 @@
       affiliation: "Library & Information Science"
     },
     keywords: [
-      { id: "kw_bibliometrics", label: "Bibliometrics", category: "core", linked_papers: ["Authors Embeddedness Project"] },
-      { id: "kw_science_of_science", label: "Science of Science", category: "core", linked_papers: ["Structural Holes Project"] },
-      { id: "kw_social_network_analysis", label: "Social Network Analysis", category: "core", linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"] },
-      { id: "kw_library_as_place", label: "Library as Place", category: "sub", linked_papers: ["Library Place-Shaping (2026)"] },
-      { id: "kw_academic_library", label: "Academic Library", category: "sub", linked_papers: ["Library Place-Shaping (2026)"] },
-      { id: "kw_perception_of_libraries", label: "Perception of Libraries", category: "sub", linked_papers: ["Library Place-Shaping (2026)"] },
-      { id: "kw_structural_holes", label: "Structural Holes", category: "sub", linked_papers: ["Structural Holes Project"] },
-      { id: "kw_collaboration", label: "Collaboration", category: "sub", linked_papers: ["Structural Holes Project"] },
-      { id: "kw_interdisciplinary_research", label: "Interdisciplinary Research", category: "sub", linked_papers: ["Structural Holes Project"] },
-      { id: "kw_field_maturation", label: "Field Maturation", category: "sub", linked_papers: ["Structural Holes Project"] },
-      { id: "kw_research_performance", label: "Research Performance", category: "sub", linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"] },
-      { id: "kw_network_embeddedness", label: "Network Embeddedness", category: "sub", linked_papers: ["Authors Embeddedness Project"] },
-      { id: "kw_bibliographic_coupling", label: "Bibliographic Coupling", category: "sub", linked_papers: ["Authors Embeddedness Project"] },
-      { id: "kw_collaboration_dynamics", label: "Collaboration Dynamics", category: "sub", linked_papers: ["Authors Embeddedness Project"] }
+      { id: "kw_bibliometrics", label: "Bibliometrics", category: "core", description: "학술 문헌 빅데이터 및 인용 네트워크 계량 분석", linked_papers: ["Authors Embeddedness Project"] },
+      { id: "kw_science_of_science", label: "Science of Science", category: "core", description: "과학학: 지식 생산 구조와 학술 협업 동학 탐구", linked_papers: ["Structural Holes Project"] },
+      { id: "kw_social_network_analysis", label: "Social Network Analysis", category: "core", description: "사회연결망분석: 연구자 및 학문 간 관계망 구조 분석", linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"] },
+      { id: "kw_library_as_place", label: "Library as Place", category: "sub", description: "도서관 장소성: 사회적으로 구성되는 물리적·인식적 공간", linked_papers: ["Library Place-Shaping (2026)"] },
+      { id: "kw_academic_library", label: "Academic Library", category: "sub", description: "대학도서관: 학술 연구와 학생 이용자의 핵심 공간", linked_papers: ["Library Place-Shaping (2026)"] },
+      { id: "kw_perception_of_libraries", label: "Perception of Libraries", category: "sub", description: "도서관 인식: 이용자 경험과 공간적 가치 평가", linked_papers: ["Library Place-Shaping (2026)"] },
+      { id: "kw_structural_holes", label: "Structural Holes", category: "sub", description: "구조적 공백: 분과 간 지식 중개자(Broker) 위치 탐구", linked_papers: ["Structural Holes Project"] },
+      { id: "kw_collaboration", label: "Collaboration", category: "sub", description: "연구자 간 공동 연구 및 지식 공유 협력", linked_papers: ["Structural Holes Project"] },
+      { id: "kw_interdisciplinary_research", label: "Interdisciplinary Research", category: "sub", description: "다학제 연구: 서로 다른 학문 분야 간의 융합과 교류", linked_papers: ["Structural Holes Project"] },
+      { id: "kw_field_maturation", label: "Field Maturation", category: "sub", description: "학문 분과 성숙: 연구 주제의 진화와 학문적 정립 과정", linked_papers: ["Structural Holes Project"] },
+      { id: "kw_research_performance", label: "Research Performance", category: "sub", description: "연구 성과: 학술적 영향력 및 질적·양적 연구 산출물", linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"] },
+      { id: "kw_network_embeddedness", label: "Network Embeddedness", category: "sub", description: "연결망 매몰성: 학술 커뮤니티 내 연구자의 관계적 위치", linked_papers: ["Authors Embeddedness Project"] },
+      { id: "kw_bibliographic_coupling", label: "Bibliographic Coupling", category: "sub", description: "서지결합분석: 공유 인용 문헌 기반 주제 유사도 측정", linked_papers: ["Authors Embeddedness Project"] },
+      { id: "kw_collaboration_dynamics", label: "Collaboration Dynamics", category: "sub", description: "협업 동학: 연구자 간 협력 관계의 형성과 진화", linked_papers: ["Authors Embeddedness Project"] }
     ],
     methods: [
-      { id: "m_in_depth_interview", label: "In-depth Interview", full_name: "In-depth Interview", desc: "Qualitative Phenomenological Inquiry", linked_papers: ["Library Place-Shaping (2026)"] },
-      { id: "m_ipa", label: "IPA", full_name: "Interpretative Phenomenological Analysis", desc: "Phenomenological Analysis", linked_papers: ["Library Place-Shaping (2026)"] },
-      { id: "m_sna", label: "SNA", full_name: "Social Network Analysis", desc: "Network metrics, structural holes, centralities", linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"] },
-      { id: "m_classical_statistics", label: "Classical statistics", full_name: "Classical statistics", desc: "Descriptive & inferential statistics, regression", linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"] }
+      { id: "m_in_depth_interview", label: "In-depth Interview", full_name: "In-depth Interview", desc: "연구 참여자 심층 면담을 통한 질적 현상학적 분석", description: "연구 참여자 심층 면담을 통한 질적 현상학적 분석", linked_papers: ["Library Place-Shaping (2026)"] },
+      { id: "m_ipa", label: "IPA", full_name: "Interpretative Phenomenological Analysis", desc: "해석학적 현상학적 분석 (Interpretative Phenomenological Analysis)", description: "해석학적 현상학적 분석 (Interpretative Phenomenological Analysis)", linked_papers: ["Library Place-Shaping (2026)"] },
+      { id: "m_sna", label: "SNA", full_name: "Social Network Analysis", desc: "사회연결망분석 (중심성, 구조적 공백, 군집 모듈성 분석)", description: "사회연결망분석 (중심성, 구조적 공백, 군집 모듈성 분석)", linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"] },
+      { id: "m_classical_statistics", label: "Classical statistics", full_name: "Classical statistics", desc: "기술/추론 통계 및 회귀분석, 다변량 통계 모형", description: "기술/추론 통계 및 회귀분석, 다변량 통계 모형", linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"] }
     ],
     papers: [
       {
@@ -189,6 +189,7 @@
             radius: isCore ? 19 : 14,
             color: isCore ? colors.keywordCore : colors.keywordSub,
             stroke: isCore ? '#1d4ed8' : '#3b82f6',
+            description: kw.description || '',
             linked_papers: kw.linked_papers || []
           };
           addNode(kwNode);
@@ -266,6 +267,7 @@
             label: m.label,
             full_name: m.full_name,
             desc: m.desc,
+            description: m.description || m.desc || '',
             type: 'method',
             isPrimary: true,
             radius: 20,
@@ -313,6 +315,7 @@
             realId: p.id,
             label: p.short_title || p.title,
             title: p.title,
+            description: p.description || '',
             venue: p.venue,
             year: p.year,
             status: p.status,
@@ -403,6 +406,8 @@
               var mSat = {
                 id: p.id + '_' + mObj.id,
                 label: mObj.label,
+                full_name: mObj.full_name || mObj.label,
+                description: mObj.description || mObj.desc || '',
                 type: 'method',
                 isSatellite: true,
                 radius: 7,
@@ -422,6 +427,7 @@
               var kwSat = {
                 id: p.id + '_' + kwObj.id,
                 label: kwObj.label,
+                description: kwObj.description || '',
                 type: 'keyword',
                 isSatellite: true,
                 radius: 7,
@@ -673,14 +679,18 @@
       } else if (d.type === 'method') {
         titleHtml = d.full_name || d.label;
         badgeHtml = '<span class="ego-tooltip-badge badge-published">METHOD</span>';
+        var descHtml = d.description ? '<div style="font-size: 0.72rem; font-weight: 500; margin-bottom: 3px; color: var(--global-text-color, #1f2937); line-height: 1.35;">🛠️ ' + d.description + '</div>' : '';
         var paperList = (d.linked_papers && d.linked_papers.length > 0) ? d.linked_papers.join(', ') : '';
-        bodyHtml = paperList ? '🛠️ 적용 연구: ' + paperList : (d.desc || '분석 프레임워크');
+        var paperHtml = paperList ? '<div style="font-size: 0.67rem; color: var(--global-text-color-light, #6b7280);">📚 적용 연구: ' + paperList + '</div>' : '';
+        bodyHtml = descHtml + paperHtml;
       } else if (d.type === 'keyword') {
         titleHtml = d.label;
         var badgeText = d.isCore ? 'CORE TOPIC' : 'TOPIC';
         badgeHtml = '<span class="ego-tooltip-badge badge-published">' + badgeText + '</span>';
+        var descHtml = d.description ? '<div style="font-size: 0.72rem; font-weight: 500; margin-bottom: 3px; color: var(--global-text-color, #1f2937); line-height: 1.35;">📌 ' + d.description + '</div>' : '';
         var paperList = (d.linked_papers && d.linked_papers.length > 0) ? d.linked_papers.join(', ') : '';
-        bodyHtml = paperList ? '📌 연계 연구: ' + paperList : (d.isCore ? '주요 연구 분야' : '세부 탐구 주제');
+        var paperHtml = paperList ? '<div style="font-size: 0.67rem; color: var(--global-text-color-light, #6b7280);">📚 연계 연구: ' + paperList + '</div>' : '';
+        bodyHtml = descHtml + paperHtml;
       }
 
       var html = '<div class="ego-tooltip-header">' +

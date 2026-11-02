@@ -1,4 +1,22 @@
-id,title,short_title,status,year,venue,description,core_keywords,sub_keywords,methods
-p1,"An Interpretive Phenomenological Approach to Library Place-Shaping and Perception of Libraries: Focusing on Student Users of Academic Libraries","Library Place-Shaping (2026)",published,2026,"한국문헌정보학회지, 60(2), 315-336","대학도서관 학생 이용자의 장소성 형성과 인식에 관한 현상학적 질적 연구","Library as Place, Academic Library","Perception of Libraries","In-depth Interview, IPA"
-p2,"Structural Holes Project (26.04.~)","Structural Holes Project",On-going,2026,"Under Review","학제 간 협업 네트워크에서 구조적 공백이 연구 성과 및 분과 성숙에 미치는 영향","Science of Science, Social Network Analysis","Structural Holes, Collaboration, Interdisciplinary Research, Field Maturation, Research Performance","SNA, Classical statistics"
-p3,"Authors Subject Embeddedness Project (26.07.~)","Authors Embeddedness Project",On-going,2026,"In Preparation","저자 수준의 주제 매몰성과 동시인용 결합을 통한 학술 협업 동학 분석","Bibliometrics, Social Network Analysis","Network Embeddedness, Bibliographic Coupling, Collaboration Dynamics, Research Performance","SNA, Classical statistics"
+type,name,description,category_or_status,core_keywords,sub_keywords,methods,venue,year,short_title
+method,SNA,"사회연결망분석 (중심성, 구조적 공백, 군집 모듈성 분석)",,,,,,,SNA
+method,Classical statistics,"기술/추론 통계 및 회귀분석, 다변량 통계 모형",,,,,,,Classical statistics
+method,In-depth Interview,"연구 참여자 심층 면담을 통한 질적 현상학적 분석",,,,,,,In-depth Interview
+method,IPA,"해석학적 현상학적 분석 (Interpretative Phenomenological Analysis)",,,,,,,IPA
+keyword,Bibliometrics,"학술 문헌 빅데이터 및 인용 네트워크 계량 분석",core,,,,,,Bibliometrics
+keyword,Science of Science,"과학학: 지식 생산 구조와 학술 협업 동학 탐구",core,,,,,,Science of Science
+keyword,Social Network Analysis,"사회연결망분석: 연구자 및 학문 간 관계망 구조 분석",core,,,,,,Social Network Analysis
+keyword,Structural Holes,"구조적 공백: 분과 간 지식 중개자(Broker) 위치 탐구",sub,,,,,,Structural Holes
+keyword,Library as Place,"도서관 장소성: 사회적으로 구성되는 물리적·인식적 공간",sub,,,,,,Library as Place
+keyword,Academic Library,"대학도서관: 학술 연구와 학생 이용자의 핵심 공간",sub,,,,,,Academic Library
+keyword,Perception of Libraries,"도서관 인식: 이용자 경험과 공간적 가치 평가",sub,,,,,,Perception of Libraries
+keyword,Network Embeddedness,"연결망 매몰성: 학술 커뮤니티 내 연구자의 관계적 위치",sub,,,,,,Network Embeddedness
+keyword,Bibliographic Coupling,"서지결합분석: 공유 인용 문헌 기반 주제 유사도 측정",sub,,,,,,Bibliographic Coupling
+keyword,Collaboration Dynamics,"협업 동학: 연구자 간 협력 관계의 형성과 진화",sub,,,,,,Collaboration Dynamics
+keyword,Research Performance,"연구 성과: 학술적 영향력 및 질적·양적 연구 산출물",sub,,,,,,Research Performance
+keyword,Collaboration,"연구자 간 공동 연구 및 지식 공유 협력",sub,,,,,,Collaboration
+keyword,Interdisciplinary Research,"다학제 연구: 서로 다른 학문 분야 간의 융합과 교류",sub,,,,,,Interdisciplinary Research
+keyword,Field Maturation,"학문 분과 성숙: 연구 주제의 진화와 학문적 정립 과정",sub,,,,,,Field Maturation
+paper,"An Interpretive Phenomenological Approach to Library Place-Shaping and Perception of Libraries: Focusing on Student Users of Academic Libraries","대학도서관 학생 이용자의 장소성 형성과 인식에 관한 현상학적 질적 연구",published,"Library as Place, Academic Library","Perception of Libraries","In-depth Interview, IPA","한국문헌정보학회지, 60(2), 315-336",2026,"Library Place-Shaping (2026)"
+paper,"Structural Holes Project (26.04.~)","학제 간 협업 네트워크에서 구조적 공백이 연구 성과 및 분과 성숙에 미치는 영향",On-going,"Science of Science, Social Network Analysis","Structural Holes, Collaboration, Interdisciplinary Research, Field Maturation, Research Performance","SNA, Classical statistics","Under Review",2026,"Structural Holes Project"
+paper,"Authors Subject Embeddedness Project (26.07.~)","저자 수준의 주제 매몰성과 동시인용 결합을 통한 학술 협업 동학 분석",On-going,"Bibliometrics, Social Network Analysis","Network Embeddedness, Bibliographic Coupling, Collaboration Dynamics, Research Performance","SNA, Classical statistics","In Preparation",2026,"Authors Embeddedness Project"
