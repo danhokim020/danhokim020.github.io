@@ -23,5 +23,14 @@ module.exports = {
     // and page chrome (scroll-progress bar, ToC) bleeds through a zoomed image.
     "medium-zoom-overlay",
     "medium-zoom-image--opened",
+    // Tocbot runtime classes
+    /^toc/,
+    /^is-active/,
+    /^is-collapsible/,
+    /^is-collapsed/,
+    // CV classes
+    /^date-column/,
+    /^table-cv/,
+    /^iconlocation/,
   ],
 };

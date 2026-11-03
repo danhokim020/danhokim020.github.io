@@ -9,7 +9,7 @@ cv:
 
   social_networks:
     - network: GitHub
-      username: pumpkin020
+      username: danhokim020
 
   sections:
     Education:
@@ -20,7 +20,7 @@ cv:
         start_date: 2026
         end_date: Present
         highlights:
-          - "Research Interest<br>: Bibliometrics, Science of Science, Social Network Analysis (SNA)"
+          - "Research Interest<br>: Bibliometrics, Science of Science, Social Network Analysis (SNA)<style>.toc-link::before,.is-active-link::before,.toc .toc-link::before,.toc .is-active-link::before,.toc-list::before{display:none!important;content:none!important;width:0!important;height:0!important}#toc-sidebar,.toc,.toc-sidebar,.js-toc{border:none!important;overflow-y:visible!important;scrollbar-width:none!important;-ms-overflow-style:none!important}#toc-sidebar::-webkit-scrollbar,.toc::-webkit-scrollbar,.toc-sidebar::-webkit-scrollbar{display:none!important;width:0!important}@media(min-width:768px){.card .list-group-item .row{display:flex!important;flex-direction:row!important;align-items:flex-start!important}.card .list-group-item .date-column{flex:0 0 170px!important;max-width:170px!important;width:170px!important;padding-right:1.5rem!important;text-align:left!important}.card .list-group-item .date-column table.table-cv{margin:0!important}.card .list-group-item .date-column+div{flex:1 1 0!important;max-width:calc(100% - 170px)!important;padding-left:2.5rem!important}.card .list-group-item .date-column+div .title,.card .list-group-item .date-column+div h6{margin-left:0!important}.card .list-group-item .date-column+div ul.items{margin-left:0!important;padding-left:1.25rem!important}}@media(max-width:767px){.card .list-group-item .date-column{width:100%!important;max-width:100%!important;text-align:left!important;margin-bottom:.75rem!important}.card .list-group-item .date-column+div{width:100%!important;max-width:100%!important;padding-left:0!important}}.card .list-group-item ul.items li{margin-top:.5rem;line-height:1.6}.card .list-group-item ul.items li .item{line-height:1.6;display:inline-block}.navbar .nav-link,.navbar-nav .nav-link{text-transform:capitalize!important}</style>"
       - institution: "Yonsei Univ."
         location: "Seoul, Republic of Korea"
         area: "Library & Information Science, Applied Statistics"
