@@ -10,5 +10,3 @@ toc:
   sidebar: left
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/ego_network.css' | relative_url }}">
-
