@@ -8,15 +8,15 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 2.2rem;
+  gap: 2.4rem;
   margin-top: 1rem;
   margin-bottom: 2.5rem;
   width: 100%;
 }
 
 .ego-layout-left {
-  flex: 0 0 350px;
-  max-width: 360px;
+  flex: 0 0 440px;
+  max-width: 450px;
   width: 100%;
 }
 
@@ -38,14 +38,87 @@
   }
   .ego-layout-left {
     flex: 0 0 auto;
-    max-width: 380px;
+    max-width: 360px;
+    width: 100%;
   }
   .ego-layout-left .ego-card {
     margin: 0 auto 1rem auto;
+    max-width: 360px;
+  }
+  .ego-card {
+    max-width: 360px !important;
+  }
+  .ego-canvas-wrap {
+    height: 330px !important;
   }
   .ego-layout-right {
     width: 100%;
   }
+}
+
+/* Global Navbar Capitalization */
+.navbar .nav-link,
+.navbar-nav .nav-link {
+  text-transform: capitalize !important;
+}
+
+/* Section Headings Capitalization on About Page */
+.post > h2 a,
+.post h2 a[href*="news"],
+.post h2 a[href*="publications"] {
+  text-transform: capitalize !important;
+}
+
+/* CV Tab: Remove TOC Indicator/Track Bar & Scrollbar */
+#toc-sidebar, .toc, .toc-sidebar {
+  border: none !important;
+  border-left: none !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+#toc-sidebar::-webkit-scrollbar,
+.toc::-webkit-scrollbar,
+.toc-sidebar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.toc-list, .toc-list-item, .toc-link {
+  border-left: none !important;
+  border-right: none !important;
+}
+.toc .is-active-link::before,
+.toc .toc-link::before,
+.toc-list::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* CV Education: Increase horizontal gap between date-column and title/institution */
+.cv .date-column,
+.card .list-group-item .date-column {
+  padding-right: 1.5rem !important;
+  min-width: 125px !important;
+}
+.cv .date-column + div,
+.card .list-group-item .date-column + div {
+  padding-left: 2rem !important;
+}
+.card .list-group-item .date-column + div .title,
+.card .list-group-item .date-column + div h6 {
+  margin-left: 0.5rem !important;
+}
+.card .list-group-item .date-column + div ul.items {
+  margin-left: 0.5rem !important;
+  padding-left: 1.25rem !important;
+}
+.card .list-group-item ul.items li {
+  margin-top: 0.35rem;
+  line-height: 1.6;
+}
+.card .list-group-item ul.items li .item {
+  line-height: 1.6;
+  display: inline-block;
 }
 
 /* Publication Bib Button Removal */
@@ -55,7 +128,7 @@ a.bibtex, .bibtex.btn, a.btn.bibtex, .publications a.bibtex {
 
 .ego-card {
   width: 100%;
-  max-width: 360px;
+  max-width: 450px;
   margin: 0 auto 1.5rem auto;
   background: var(--global-card-bg-color, rgba(255, 255, 255, 0.85));
   border: 1px solid var(--global-divider-color, rgba(0, 0, 0, 0.1));
@@ -161,7 +234,7 @@ a.bibtex, .bibtex.btn, a.btn.bibtex, .publications a.bibtex {
 /* Visualization Canvas */
 .ego-canvas-wrap {
   width: 100%;
-  height: 330px;
+  height: 360px;
   position: relative;
   background: radial-gradient(circle at center, rgba(37, 99, 235, 0.03) 0%, transparent 70%);
 }
