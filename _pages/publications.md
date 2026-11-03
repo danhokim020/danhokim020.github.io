@@ -1,12 +1,14 @@
 ---
 layout: page
 permalink: /publications/
-title: publications
+title: Publications
 nav: true
 nav_order: 1
 ---
 
 <!-- _pages/publications.md -->
+
+<link rel="stylesheet" href="{{ '/assets/css/ego_network.css' | relative_url }}">
 
 <style>
   /* Hide Bib button */

@@ -20,7 +20,7 @@ cv:
         start_date: 2026
         end_date: Present
         highlights:
-          - "Research Interest : Bibliometrics, Science of Science, Social Network Analysis (SNA)"
+          - "Research Interest<br>: Bibliometrics, Science of Science, Social Network Analysis (SNA)"
       - institution: "Yonsei Univ."
         location: "Seoul, Republic of Korea"
         area: "Library & Information Science, Applied Statistics"

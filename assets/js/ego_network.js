@@ -103,8 +103,9 @@
     var svg = d3.select('#ego-network-svg');
     var tooltip = d3.select('#ego-tooltip');
 
+    var canvasWrap = container.querySelector('.ego-canvas-wrap');
     var width = container.clientWidth || 340;
-    var height = 330;
+    var height = (canvasWrap && canvasWrap.clientHeight) ? canvasWrap.clientHeight : 330;
     var centerX = width / 2;
     var centerY = height / 2;
 
@@ -743,11 +744,19 @@
     // Handle Window Resize
     window.addEventListener('resize', function () {
       var newWidth = container.clientWidth || 340;
-      if (Math.abs(newWidth - width) > 10) {
+      var newHeight = (canvasWrap && canvasWrap.clientHeight) ? canvasWrap.clientHeight : height;
+      if (Math.abs(newWidth - width) > 10 || Math.abs(newHeight - height) > 10) {
         width = newWidth;
+        height = newHeight;
         centerX = width / 2;
+        centerY = height / 2;
         svg.attr('viewBox', [0, 0, width, height]);
         simulation.force('center', d3.forceCenter(centerX, centerY));
+        var ego = simulation.nodes().find(function (n) { return n.isEgo; });
+        if (ego) {
+          ego.fx = centerX;
+          ego.fy = centerY;
+        }
         simulation.alpha(0.3).restart();
       }
     });
