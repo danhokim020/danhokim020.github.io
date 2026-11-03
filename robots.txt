@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://pumpkin020.github.io/my_homepage/sitemap.xml
+Sitemap: https://danhokim020.github.io/sitemap.xml

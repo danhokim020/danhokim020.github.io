@@ -575,6 +575,19 @@ mark,
   padding: 0.15em;
 }
 
+#toc-wrapper {
+  z-index: 90;
+  position: fixed !important;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 10px;
+  border-style: solid;
+  border-width: thin;
+  border-right-width: medium !important;
+  background-color: #ffffff !important;
+}
+
 #toc a,
 .toc {
   color: #303030 !important;
@@ -588,6 +601,11 @@ mark,
 #toc a:hover,
 .toc {
   color: #1c1c1c !important;
+  font-size: 11pt !important;
+}
+
+#toc-wrapper .toc-item-num {
+  color: #ff7823 !important;
   font-size: 11pt !important;
 }
 
