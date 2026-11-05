@@ -13,17 +13,17 @@ keywords:
     label: "Bibliometrics"
     category: core
     description: "Quantitative analysis of large-scale scholarly literature and citation networks"
-    linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"]
+    linked_papers: ["Structural Holes Project", "Embeddedness Project"]
   - id: kw_sna
     label: "SNA"
     category: core
     description: "Social network analysis (measurements, community detection, ERGM...)"
-    linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"]
+    linked_papers: ["Structural Holes Project", "Embeddedness Project"]
   - id: kw_science_of_science
     label: "Science of Science"
     category: core
     description: "Study of how knowledge is produced and how scholarly collaboration evolves"
-    linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"]
+    linked_papers: ["Structural Holes Project", "Embeddedness Project"]
   - id: kw_academic_library
     label: "Academic Library"
     category: sub
@@ -33,12 +33,12 @@ keywords:
     label: "Bibliographic Coupling"
     category: sub
     description: "a bibliometric method used to measure the topical similarity between two scientific documents based on the common references they cite"
-    linked_papers: ["Authors Embeddedness Project"]
+    linked_papers: ["Embeddedness Project"]
   - id: kw_collaboration_dynamics
     label: "Collaboration Dynamics"
     category: sub
     description: "The formation and evolution of collaborative ties among researchers"
-    linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"]
+    linked_papers: ["Structural Holes Project", "Embeddedness Project"]
   - id: kw_field_maturation
     label: "Field Maturation"
     category: sub
@@ -58,7 +58,7 @@ keywords:
     label: "Network Embeddedness"
     category: sub
     description: "how human behavior, economic actions, and social exchanges are deeply rooted in and shaped by webs of social relationships"
-    linked_papers: ["Authors Embeddedness Project"]
+    linked_papers: ["Embeddedness Project"]
   - id: kw_perception_of_libraries
     label: "Perception of Libraries"
     category: sub
@@ -68,7 +68,7 @@ keywords:
     label: "Research Performance"
     category: sub
     description: "Scholarly impact and other measurements about research output"
-    linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"]
+    linked_papers: ["Structural Holes Project", "Embeddedness Project"]
   - id: kw_structural_holes
     label: "Structural Holes"
     category: sub
@@ -81,13 +81,13 @@ methods:
     full_name: "SNA"
     desc: "Social network analysis (measurements, community detection, ERGM...)"
     description: "Social network analysis (measurements, community detection, ERGM...)"
-    linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"]
+    linked_papers: ["Structural Holes Project", "Embeddedness Project"]
   - id: m_classical_statistics
     label: "Classical statistics"
     full_name: "Classical statistics"
     desc: "Descriptive and inferential statistics, regression, and multivariate models"
     description: "Descriptive and inferential statistics, regression, and multivariate models"
-    linked_papers: ["Structural Holes Project", "Authors Embeddedness Project"]
+    linked_papers: ["Structural Holes Project", "Embeddedness Project"]
   - id: m_in_depth_interview
     label: "In-depth Interview"
     full_name: "In-depth Interview"
@@ -125,8 +125,8 @@ papers:
     methods: ["m_sna", "m_classical_statistics"]
 
   - id: p3
-    title: "Authors Subject Embeddedness Project (26.07.~)"
-    short_title: "Authors Embeddedness Project"
+    title: "Embeddedness Project (26.07.~)"
+    short_title: "Embeddedness Project"
     year: 2026
     venue: "In Preparation"
     status: ongoing
